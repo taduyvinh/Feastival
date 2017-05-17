@@ -1,5 +1,6 @@
 {
   "name": "feastival",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {}
 }
