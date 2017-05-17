@@ -18,7 +18,6 @@ DuplicateMethodCall:
 
 exclude_paths:
   - db
-  - 'app/assets/models/application_record.rb'
 
 'app/controllers':
   InstanceVariableAssumption:
