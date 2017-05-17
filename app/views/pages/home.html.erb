@@ -1,0 +1,11 @@
+<% provide :title, t(".title") %>
+<div id="main">
+  <div class="container">
+    <div id="main-wrapper">
+      <%= image_tag "logo.png", id: "main-logo" %>
+      <h1><%= t ".welcome" %></h1>
+      <%= link_to t(".join"), "#", class: "btn btn-danger",
+        id: "main-button" %>
+    </div>
+  </div>
+</div>

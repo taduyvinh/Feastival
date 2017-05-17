@@ -1,0 +1,22 @@
+vi:
+  pages:
+    home:
+      title: "Feastival"
+      welcome: "Nơi bạn tạo ra những bữa ăn thú vị"
+      join: "Tham gia ngay!"
+
+    about:
+      title: "Feastival"
+
+    help:
+      title: "Trợ giúp"
+
+    contact:
+      title: "Liên hệ"
+
+  layouts:
+    header:
+      search_location: "Tìm theo địa điểm"
+      help: "Trợ giúp"
+      about: "Về chúng tôi"
+      contact: "Liên hệ"
