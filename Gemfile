@@ -30,4 +30,24 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 end
 
+group :test do
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers", "~> 3.0"
+  gem "database_cleaner", "~> 1.5"
+  gem "rubocop", require: false
+  gem "rubocop-checkstyle_formatter", require: false
+  gem "scss_lint", require: false
+  gem "scss_lint_reporter_checkstyle", require: false
+  gem "rails_best_practices"
+  gem "brakeman", require: false
+  gem "bundler-audit"
+  gem "reek"
+  gem "rails-controller-testing"
+  gem "simplecov", require: false
+  gem "rspec-activemodel-mocks"
+  gem "cucumber-rails", require: false
+  gem "rspec-rails", "~> 3.6"
+  gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails"
+end
+
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
