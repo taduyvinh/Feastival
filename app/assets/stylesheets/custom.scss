@@ -1,0 +1,78 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+$carrot-orange: #d65e40;
+$white: #fff;
+
+// home page
+
+.main {
+  background-image: image-url('dinner.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100%;
+  margin-top: 100px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+
+  .main-wrapper {
+    display: block;
+    left: 0%;
+    position: absolute;
+    top: 15%;
+    vertical-align: middle;
+    width: 100%;
+
+    .main-logo {
+      display: block;
+      height: 150px;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      color: $white;
+      display: block;
+      font-size: 3.5em;
+      margin: 20px;
+    }
+
+    .main-button {
+      display: block;
+      font-size: 2em;
+      margin: 0 auto 20px;
+      padding: 20px 30px;
+      width: 300px;
+    }
+  }
+}
+
+// header
+
+header {
+  margin: 0 100px;
+  margin-bottom: 100px;
+
+  .search {
+    display: inline;
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+      padding: 10px;
+    }
+  }
+
+  .logo {
+    color: $carrot-orange;
+    font-size: 1.7em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-right: 10px;
+    padding: 10px;
+    padding-top: 9px;
+    text-transform: uppercase;
+  }
+}
