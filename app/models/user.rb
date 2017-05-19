@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable, :rememberable,
+    :validatable
+
   has_one :profile
 
   has_many :groups, as: :creator, dependent: :destroy

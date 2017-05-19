@@ -1,14 +1,14 @@
 <header class="nav navbar-brand navbar-fixed-top">
   <nav>
-    <%= link_to t("feastival"), root_path, id: "logo" %>
-    <%= form_tag root_path, method: :get, id: "search" do %>
+    <%= link_to t("feastival"), root_path, class: "logo" %>
+    <%= form_tag root_path, method: :get, class: "search" do %>
       <%= text_field_tag :search, params[:search],
         placeholder: t(".search_location") %>
       <%= button_tag type: "submit", class: "btn btn-default" do %>
         <span class="glyphicon glyphicon-search"></span>
       <% end %>
     <% end %>
-    <% if false %>
+    <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to root_path do %>
@@ -26,7 +26,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to root_path do %>
+          <%= link_to logout_path, method: :delete do %>
             <span class="glyphicon glyphicon-off"></span>
           <% end %>
         </li>
