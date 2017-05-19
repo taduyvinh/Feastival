@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511014455) do
+ActiveRecord::Schema.define(version: 20170519033128) do
 
   create_table "group_users", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "user_id"
+    t.integer  "group_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_group_users_on_group_id"
@@ -22,34 +22,34 @@ ActiveRecord::Schema.define(version: 20170511014455) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "title"
+    t.string   "title"
     t.datetime "time"
-    t.text "address"
-    t.text "other"
-    t.boolean "completed", default: false
-    t.integer "size"
-    t.integer "creator_id"
-    t.integer "caterogy_id_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "address"
+    t.text     "other"
+    t.boolean  "completed",      default: false
+    t.integer  "size"
+    t.integer  "creator_id"
+    t.integer  "caterogy_id_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["caterogy_id_id"], name: "index_groups_on_caterogy_id_id"
     t.index ["creator_id"], name: "index_groups_on_creator_id"
   end
 
   create_table "markers", force: :cascade do |t|
-    t.float "longitude"
-    t.float "latitude"
-    t.integer "address"
-    t.integer "group_id"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "address"
+    t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_markers_on_group_id"
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.integer "group_id"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_messages_on_group_id"
@@ -57,45 +57,51 @@ ActiveRecord::Schema.define(version: 20170511014455) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "content"
-    t.string "notification_type"
-    t.integer "notification_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.text     "content"
+    t.string   "notification_type"
+    t.integer  "notification_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "name"
-    t.date "birthday"
-    t.integer "gender"
-    t.text "address"
-    t.string "job"
-    t.string "phonenumber"
-    t.string "avatar"
-    t.text "description"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.date     "birthday"
+    t.integer  "gender"
+    t.text     "address"
+    t.string   "job"
+    t.string   "phonenumber"
+    t.string   "avatar"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reports", force: :cascade do |t|
-    t.integer "reporter_id"
-    t.string "reported_type"
-    t.integer "reported_id"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "reporter_id"
+    t.string   "reported_type"
+    t.integer  "reported_id"
+    t.text     "content"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.boolean "is_admin", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email"
+    t.boolean  "is_admin",            default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "encrypted_password",  default: "",    null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

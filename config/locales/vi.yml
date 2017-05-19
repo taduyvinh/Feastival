@@ -20,3 +20,26 @@ vi:
       help: "Trợ giúp"
       about: "Về chúng tôi"
       contact: "Liên hệ"
+  shared:
+    error_messages:
+      error_message: "Lỗi"
+      contain_form: "Biễu mẫu có "
+  devise:
+    sessions:
+      new:
+        title: "Đăng nhập"
+        btn_login: "Đăng nhập"
+        btn_signup: "Đăng ký ngay!"
+        new_user: "Người dùng mới?"
+        remember: "Ghi nhớ mật khẩu"
+        forgot_password: "Quên mật khẩu?"
+        email: "Email"
+        btn_password: "Mật khẩu"
+    registrations:
+      new:
+        title: "Đăng ký"
+        btn_createaccount: "Tạo tài khoản"
+        btn_confirm: "Nhập lại mật khẩu"
+        btn_password: "Mật khẩu"
+        email: "Email"
+
