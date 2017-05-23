@@ -19,6 +19,7 @@ gem "i18n-js"
 gem "kaminari"
 gem "carrierwave"
 gem "devise"
+gem "config"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

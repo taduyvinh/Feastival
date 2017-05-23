@@ -1,0 +1,5 @@
+flash_type:
+  success: "alert alert-success"
+  error: "alert alert-danger"
+  info: "alert alert-info"
+  warning: "alert alert-warning"
