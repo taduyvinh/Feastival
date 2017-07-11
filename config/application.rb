@@ -9,8 +9,8 @@ Bundler.require(*Rails.groups)
 module Feastival
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.generators do |g|
-      g.test_framework :rspec
+    config.generators do |generator|
+      generator.test_framework :rspec
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

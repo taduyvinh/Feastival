@@ -17,38 +17,30 @@ gem "jquery-rails"
 gem "redis"
 
 group :development, :test do
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara", "~> 2.13.0"
-  gem "selenium-webdriver"
+  gem "rspec"
+  gem "rspec-rails"
+  gem "rspec-collection_matchers"
   gem "factory_girl_rails"
+  gem "capybara", "~> 2.13.0"
+  gem "better_errors"
   gem "guard-rspec", require: false
-end
-
-group :development do
-  gem "web-console", ">= 3.3.0"
-  gem "listen", ">= 3.0.5", "< 3.2"
-  gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
+  gem "database_cleaner"
+  gem "brakeman", require: false
+  gem "jshint"
+  gem "bundler-audit"
+  gem "rubocop"
+  gem "rubocop-checkstyle_formatter", require: false
+  gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails", require: false
+  gem "scss_lint_reporter_checkstyle", require: false
+  gem "rails_best_practices"
+  gem "reek"
+  gem "railroady"
+  gem "autoprefixer-rails"
 end
 
 group :test do
-  gem "rspec-collection_matchers"
-  gem "shoulda-matchers", "~> 3.0"
-  gem "database_cleaner", "~> 1.5"
-  gem "rubocop", require: false
-  gem "rubocop-checkstyle_formatter", require: false
-  gem "scss_lint", require: false
-  gem "scss_lint_reporter_checkstyle", require: false
-  gem "rails_best_practices"
-  gem "brakeman", require: false
-  gem "bundler-audit"
-  gem "reek"
-  gem "rails-controller-testing"
   gem "simplecov", require: false
-  gem "rspec-activemodel-mocks"
-  gem "cucumber-rails", require: false
-  gem "rspec-rails", "~> 3.6"
-  gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails"
+  gem "simplecov-rcov", require: false
+  gem "simplecov-json"
+  gem "shoulda-matchers"
 end
-
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

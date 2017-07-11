@@ -28,3 +28,6 @@
 
 /app/assets/javascripts/react-app.js
 .idea/*
+
+.framgia-ci-reports/
+.framgia-ci-result.temp.yml
