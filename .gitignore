@@ -25,3 +25,6 @@
 /config/database.yml
 /config/secrets.yml
 /public/uploads/**
+
+/app/assets/javascripts/react-app.js
+.idea/*
