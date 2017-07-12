@@ -15,6 +15,9 @@ gem "jbuilder", "~> 2.5"
 gem "bcrypt", "~> 3.1.7"
 gem "jquery-rails"
 gem "redis"
+gem "devise"
+gem "cancancan"
+gem "rolify"
 
 group :development, :test do
   gem "rspec"
