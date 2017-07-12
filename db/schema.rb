@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170712010709) do
     t.integer "size"
     t.boolean "status"
     t.boolean "completed"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,9 +52,9 @@ ActiveRecord::Schema.define(version: 20170712010709) do
   end
 
   create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "place_id"
+    t.integer "restaurant_id"
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170712010709) do
   end
 
   create_table "opening_hours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "place_id"
+    t.integer "restaurant_id"
     t.time "from"
     t.time "to"
     t.integer "day_of_week"
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170712010709) do
     t.integer "gender", default: 0
     t.string "job"
     t.string "avatar"
-    t.string "description"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -102,10 +103,10 @@ ActiveRecord::Schema.define(version: 20170712010709) do
     t.integer "category_id"
     t.integer "manager_id"
     t.string "title"
-    t.text "description"
     t.text "address"
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
+    t.text "description"
     t.string "phonenumber"
     t.string "website"
     t.boolean "is_approved"
@@ -151,12 +152,13 @@ ActiveRecord::Schema.define(version: 20170712010709) do
   create_table "voucher_codes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "group_id"
     t.integer "voucher_id"
+    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "vouchers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "place_id"
+    t.integer "restaurant_id"
     t.datetime "from"
     t.datetime "to"
     t.text "description"
