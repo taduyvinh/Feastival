@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  acts_as_token_authenticatable
+
   rolify
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable

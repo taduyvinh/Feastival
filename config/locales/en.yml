@@ -32,3 +32,7 @@
 en:
   hello: "Hello world"
   app_name : "Festival"
+  object_not_found: "Not available!"
+  api:
+    missing_params: "Missing parameter"
+    invalid_token: "Invalid token"

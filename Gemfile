@@ -19,6 +19,7 @@ gem "devise"
 gem "cancancan"
 gem "rolify"
 gem "bootstrap-sass"
+gem "simple_token_authentication"
 
 group :development, :test do
   gem "rspec"
