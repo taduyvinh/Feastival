@@ -18,6 +18,7 @@ gem "redis"
 gem "devise"
 gem "cancancan"
 gem "rolify"
+gem "bootstrap-sass"
 
 group :development, :test do
   gem "rspec"
