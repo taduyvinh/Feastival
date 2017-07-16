@@ -9,10 +9,7 @@ module Api
     def create
       if user.valid_password? sign_in_params[:password]
         sign_in "user", user
-        render json: {
-          messages: I18n.t("devise.sessions.signed_in"),
-          data: {user_info: {id: user.id, name: user.name}}
-        }, status: :ok
+        response_create_data
       else
         invalid_login_attempt
       end
@@ -21,9 +18,7 @@ module Api
     def destroy
       sign_out user
       user.generate_new_authentication_token
-      render json: {
-        messages: I18n.t("devise.sessions.signed_out")
-      }, status: :ok
+      response_destroy
     end
 
     private
@@ -47,6 +42,19 @@ module Api
       }, status: :unauthorized
     end
 
+    def response_create_data
+      render json: {
+        messages: I18n.t("devise.sessions.signed_in"),
+        user_info: {id: user.id, email: user.email}
+      }, status: :ok
+    end
+
+    def response_destroy
+      render json: {
+        messages: I18n.t("devise.sessions.signed_out")
+      }, status: :ok
+    end
+
     def load_user
       @user =
         User.find_for_database_authentication email: sign_in_params[:email]
@@ -59,7 +67,7 @@ module Api
 
     def valid_token
       @user =
-        User.find_by authentication_token: request.headers["MS-AUTH-TOKEN"]
+        User.find_by authentication_token: request.headers["USER-TOKEN"]
 
       return if user
       render json: {

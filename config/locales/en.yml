@@ -36,3 +36,10 @@ en:
   api:
     missing_params: "Missing parameter"
     invalid_token: "Invalid token"
+    users:
+      show_success: ""
+      update_success: "Updated Profile!"
+      update_fail: "Profile can not be updated"
+      sign_up_success: "Registered successfuly"
+      sign_up_fail: "Can not register account"
+      not_authorized: "Unauthorized access"
