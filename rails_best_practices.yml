@@ -23,7 +23,13 @@ ProtectMassAssignmentCheck: { }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { except_methods: [ReactAppController#home] }
+RemoveUnusedMethodsInControllersCheck: {
+  except_methods: [
+    ReactAppController#home,
+    UsersController#show, UsersController#update,
+    BaseController#ensure_parameters_exist
+  ]
+}
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }

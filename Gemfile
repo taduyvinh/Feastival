@@ -23,6 +23,7 @@ gem "simple_token_authentication"
 gem "font-awesome-sass"
 
 group :development, :test do
+  gem "pry"
   gem "rspec"
   gem "rspec-rails"
   gem "rspec-collection_matchers"
