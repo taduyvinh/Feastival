@@ -51,7 +51,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
     ast (2.3.0)
-    autoprefixer-rails (7.1.2.1)
+    autoprefixer-rails (7.1.2.2)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -108,6 +108,8 @@ GEM
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -268,10 +270,13 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scss_lint (0.54.0)
+      rake (>= 0.9, < 13)
+      sass (~> 3.4.20)
     scss_lint_reporter_checkstyle (0.2.0)
     sexp_processor (4.9.0)
     shellany (0.0.1)
-    shoulda-matchers (3.1.1)
+    shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
     simple_token_authentication (1.15.1)
       actionmailer (>= 3.2.6, < 6)
@@ -338,6 +343,7 @@ DEPENDENCIES
   devise
   eslint-rails!
   factory_girl_rails
+  font-awesome-sass
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails
@@ -356,6 +362,7 @@ DEPENDENCIES
   rubocop
   rubocop-checkstyle_formatter
   sass-rails (~> 5.0)
+  scss_lint
   scss_lint_reporter_checkstyle
   shoulda-matchers
   simple_token_authentication

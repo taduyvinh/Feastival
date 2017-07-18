@@ -20,6 +20,7 @@ gem "cancancan"
 gem "rolify"
 gem "bootstrap-sass"
 gem "simple_token_authentication"
+gem "font-awesome-sass"
 
 group :development, :test do
   gem "rspec"
@@ -36,6 +37,7 @@ group :development, :test do
   gem "rubocop"
   gem "rubocop-checkstyle_formatter", require: false
   gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails", require: false
+  gem "scss_lint", require: false
   gem "scss_lint_reporter_checkstyle", require: false
   gem "rails_best_practices"
   gem "reek"

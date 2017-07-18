@@ -1,0 +1,198 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+$red-blacker: #7d1917;
+$red-lighter: #b10018;
+$white: #fff;
+$yellow-lighter: #fdd152;
+$gray-lighter: rgba(252, 243, 215, .9);
+$gray-darker: rgba(0, 0, 0, .3);
+
+@mixin configlink {
+  a {
+    color: $white;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $yellow-lighter;
+      transition: color .4s ease 0s;
+    }
+  }
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: font-url('Montserrat-Regular.ttf');
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.jumbotron {
+  background-attachment: fixed;
+  background-image: url('/assets/home_pic_1.png');
+  background-position: center;
+  background-size: cover;
+  height: 1150px;
+  margin-bottom: 0;
+  position: relative;
+
+  .slogan {
+    color: $white;
+    font-size: 4.5em;
+    font-weight: bold;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .introduce {
+    color: $white;
+    font-size: 1.7em;
+    text-align: center;
+  }
+}
+
+.quick-intro {
+  background-color: $gray-lighter;
+  bottom: 0;
+  left: 0;
+  padding: 50px 25px;
+  position: absolute;
+  right: 0;
+}
+
+.intro {
+  color: $white;
+  padding: 15px 20px;
+  text-align: center;
+
+  .intro-content {
+    background-color: $red-lighter;
+    padding: 30px 35px;
+
+    p {
+      border-bottom: 4px solid $yellow-lighter;
+      margin: 10px auto 20px;
+      width: 85px;
+    }
+
+    .quick-intro-title {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .quick-intro-content {
+      font-size: 1.1em;
+      margin-top: 15px;
+    }
+  }
+}
+
+.our-story {
+  background-attachment: fixed;
+  background-image: url('/assets/home_pic_3.png');
+  background-position: center;
+  background-size: cover;
+  color: $white;
+  height: 580px;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    background-color: $gray-darker;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .content {
+    z-index: 2;
+
+    p {
+      border-bottom: 5px solid $yellow-lighter;
+      margin: 85px 0 35px;
+      width: 120px;
+    }
+
+    .our-story-title {
+      font-size: 2.2em;
+      font-weight: bold;
+    }
+
+    .our-story-content {
+      font-size: 1.1em;
+      margin-top: 30px;
+      word-spacing: 2px;
+    }
+  }
+}
+
+footer {
+  background-color: $red-blacker;
+  color: $white;
+  margin: 0;
+  padding: 25px 0;
+
+  .copyright {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+
+  .app-logo {
+    font-size: 3.5em;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+}
+
+.information {
+  margin-bottom: 25px;
+
+  .footer-content {
+    margin: 10px 0;
+  }
+
+  .icon-list {
+    font-size: 1.7em;
+    margin-top: 6px;
+
+    .fa {
+      margin-right: 15px;
+    }
+  }
+}
+
+nav {
+  background-color: $red-blacker;
+
+  .navbar-header {
+    @include configlink;
+  }
+
+  .navbar-nav {
+    li {
+      @include configlink;
+    }
+  }
+
+  .dropdown-menu {
+    @include configlink;
+    background-color: $red-blacker;
+    border-color: $white;
+  }
+}
