@@ -1,7 +1,15 @@
 module.exports = {
-  'app': {
-    'login': {
-      'login_view': 'Login'
+  app: {
+    login: {
+      login_view: 'Login',
+      sign_up: 'Sign Up',
+      not_user: 'Dont have an account? ',
+      error: 'Email or Password Wrong',
+      sign_in: 'Sign in',
+      remember: 'Remember me',
+      forgot_pass: 'Forgot password',
+      password: 'Password',
+      email: 'Email'
     },
     'static-pages': {
       'home_page': 'Home Page',
@@ -31,7 +39,7 @@ module.exports = {
             This is a great space to write long text about your company and your services.\
             You can use this space to go into a little more detail about your company.'
       },
-      'quick_intro':{
+      'quick_intro': {
         'title_1': 'Foods',
         'title_2': 'Talking',
         'title_3': 'Relax',
@@ -56,6 +64,20 @@ module.exports = {
       'copyright': '©2017 by Fang\'s Noodles.\
         Proudly created with Wix.com',
       'user': 'User'
+    },
+    user_info: {
+      user_info: 'User Information',
+      email: 'Email',
+      birthday: 'Birthday',
+      phonenumber: 'Phone',
+      name: 'Name',
+      job: 'Job',
+      description: 'Description',
+      update: 'Update',
+      change_pass: 'Change Password',
+      current_pass: 'Current Password',
+      new_pass: 'New Password',
+      repeat_pass: 'Repeat Password'
     }
   }
 }
