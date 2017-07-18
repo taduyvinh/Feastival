@@ -1,14 +1,18 @@
 var translate = require('counterpart');
 
-export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import Navbar from './navbar';
+import Jumbotron from './jumbotron';
+import OurStory from './our_story';
+import Footer from './footer';
 
+export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <p>{translate('app.static-pages.home_page')}</p>
+        <Navbar/>
+        <Jumbotron/>
+        <OurStory/>
+        <Footer/>
       </div>
     );
   }
