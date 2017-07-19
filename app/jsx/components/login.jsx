@@ -1,12 +1,37 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
+import axios from 'axios';
+import * as constant from  '../constant';
 
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', password: '', remember_me: true};
+    this.state = {email: '', password: '', remember_me: true};
+  }
+
+  componentWillMount() {
+    if (localStorage.festival_user != null) {
+      window.location = constant.BASE_URL;
+    }
   }
 
   handleSubmit() {
+    let formData = new FormData();
+    formData.append('sign_in[email]', this.state.email);
+    formData.append('sign_in[password]', this.state.password);
+    let email = this.state.email;
+    axios.post(constant.API_SIGN_IN_URL, formData)
+      .then((response) =>  {
+        let festival_user = {
+          email: email,
+          user_id: response.data.user_session.id,
+          USER_TOKEN: response.data.user_session.user_token
+        }
+        localStorage.setItem('festival_user', JSON.stringify(festival_user));
+        window.location = constant.BASE_URL;
+      })
+      .catch(function (error) {
+        alert(error);
+      });
   }
 
   handleInputChange(event) {
@@ -25,7 +50,7 @@ export default class Login extends React.Component {
         <div className='login-card'>
           <div className='pmd-card card-default pmd-z-depth'>
             <div className='login-card'>
-              <form>
+              <div>
                 <div className='pmd-card-title card-header-border text-center'>
                   <h3><strong>{translate('app.login.sign_in')}</strong></h3>
                 </div>
@@ -39,8 +64,8 @@ export default class Login extends React.Component {
                         <i className='material-icons md-dark pmd-sm'>perm_identity</i>
                       </div>
                       <input type='text' className='form-control'
-                        value={this.state.username}
-                        name='username'
+                        value={this.state.email}
+                        name='email'
                         onChange={this.handleInputChange.bind(this)}
                         placeholder={translate('app.login.email')}
                       />
@@ -52,7 +77,7 @@ export default class Login extends React.Component {
                       <div className='input-group-addon'>
                         <i className='material-icons md-dark pmd-sm'>lock_outline</i>
                       </div>
-                      <input type='text' className='form-control'
+                      <input type='password' className='form-control'
                         value={this.state.password}
                         name='password'
                         onChange={this.handleInputChange.bind(this)}
@@ -71,19 +96,22 @@ export default class Login extends React.Component {
                       </label>
                     </div>
                     <span className='pull-right forgot-password box-another'>
-							        <a href=''>{translate('app.login.forgot_pass')}</a>
-						        </span>
+                      <a>
+                        {translate('app.login.forgot_pass')}
+                      </a>
+                    </span>
                   </div>
-                  <a href='' type='button' className='btn btn-primary btn-block'
+                  <button className='btn btn-primary btn-block'
                     onClick={this.handleSubmit.bind(this)}>
-                    {translate('app.login.login_view')}</a>
+                    {translate('app.login.login_view')}</button>
 
                   <p className='redirection-link'>{translate('app.login.not_user')}
-                    <a href='' className='login-register'> {translate('app.login.sign_up')}</a>.</p>
+                    <a className='login-register'> {translate('app.login.sign_up')}</a>.
+                  </p>
 
                 </div>
 
-              </form>
+              </div>
             </div>
 
           </div>

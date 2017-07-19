@@ -1,4 +1,4 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
 
 import QuickIntro from './quick_intro';
 

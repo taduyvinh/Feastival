@@ -1,4 +1,4 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
 
 import Jumbotron from './jumbotron';
 import OurStory from './our_story';

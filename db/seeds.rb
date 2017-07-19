@@ -8,3 +8,10 @@
 
 roles = %w(normal manager admin)
 3.times {|role| Role.create name: roles[role]}
+
+
+("a".."c").each do |user|
+  User.create(
+    email: "#{user}@gmail.com",
+    password: "123456")
+end

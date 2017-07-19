@@ -1,19 +1,23 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
 import update from 'react-addons-update';
+import * as constant from  '../constant'
+import axios from 'axios';
 
 export default class UserInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        avatar: 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg',
-        name: 'Tuan Anh',
-        birthday: '10/08/1995',
-        phonenumber: '0975700717',
-        id: '1',
-        job: 'sinh vien',
-        email: 'quangduybk95@gmail.com',
-        description: 'asdasdadad'
+      'email': 'b@gmail.com',
+      'profile': {
+        'id': 1,
+        'user_id': 1,
+        'name': '',
+        'birthday': '',
+        'phonenumber': '',
+        'gender': 0,
+        'job': 'null',
+        'avatar': 'null',
+        'description': 'null',
       },
       change_pass: {
         current_pass: '',
@@ -23,19 +27,55 @@ export default class UserInfo extends React.Component {
     }
   }
 
-  handle_updateInfo() {
-
+  getUserInfoById(id) {
+    axios.get(constant.API_USER_INFO_URL + id, constant.headers)
+      .then((response) =>  {
+        this.checkNullInfo(response.data.user_info.profile)
+        this.setState({
+          email: response.data.user_info.email,
+          profile: response.data.user_info.profile
+        })
+      })
+      .catch(function (error) {
+        alert(error);
+      });
   }
 
-  handle_updatePassword() {
+  updateUserInfo() {
+    let formData = new FormData();
+    formData.append('user[profile_attributes][name]', this.state.profile.name);
+    formData.append('user[profile_attributes][description]', this.state.profile.description);
+    formData.append('user[profile_attributes][phonenumber]', this.state.profile.phonenumber);
+    formData.append('user[profile_attributes][birthday]', this.state.profile.birthday);
+    formData.append('user[profile_attributes][job]', this.state.profile.job);
+
+    axios.patch(constant.API_USER_INFO_URL + JSON.parse(localStorage.festival_user).user_id,
+      formData, constant.headers)
+      .then((response) =>  {
+        window.location.reload();
+      })
+      .catch(function (error) {
+        alert(error);
+      });
+  }
+
+  componentWillMount() {
+    this.getUserInfoById(this.props.params.user_id);
+  }
+
+  handleUpdateInfo() {
+    this.updateUserInfo();
+  }
+
+  handleUpdatePassword() {
 
   }
 
   handleChangeInfo(key, event) {
-    let newUser = update(this.state.user, {
+    let newProfile = update(this.state.profile, {
       [key]: {$set: event.target.value}
     });
-    this.setState({user: newUser});
+    this.setState({profile: newProfile});
   }
 
   handleChangePassword(key, event) {
@@ -45,6 +85,15 @@ export default class UserInfo extends React.Component {
     this.setState({change_pass: newChangePass});
   }
 
+  checkNullInfo(profile) {
+    profile.name = profile.name || '';
+    profile.birthday = profile.birthday || '';
+    profile.phonenumber = profile.phonenumber || '';
+    profile.job = profile.job || '';
+    profile.avatar = profile.avatar || constant.DEFAULT_AVATAR;
+    profile.description = profile.description || '';
+  }
+
   render() {
     return (
       <section className='user-info'>
@@ -52,12 +101,12 @@ export default class UserInfo extends React.Component {
           <div className='pmd-card pmd-z-depth-1 col-md-offset-3 col-md-6 user-info-body'>
             <div className='fileinput fileinput-new col-md-2 col-md-offset-1 avatar'>
               <div className='fileinput-preview thumbnail img-circle img-responsive'>
-                <img src={this.state.user.avatar} height='200'/>
+                <img src={this.state.profile.avatar} width='180' height='200'/>
               </div>
             </div>
 
             <div className='col-md-8'>
-              <form className='form-horizontal' role='form'>
+              <div className='form-horizontal'>
                 <fieldset>
 
                   <legend>{translate('app.user_info.user_info')}</legend>
@@ -66,7 +115,7 @@ export default class UserInfo extends React.Component {
                     <label className='col-sm-3 control-label' for='textinput'>
                       {translate('app.user_info.email')}</label>
                     <div className='col-sm-9'>
-                      <p className='form-control-static'><strong>{this.state.user.email}</strong></p>
+                      <p className='form-control-static'><strong>{this.state.email}</strong></p>
                     </div>
                   </div>
 
@@ -74,8 +123,9 @@ export default class UserInfo extends React.Component {
                     <label className='col-sm-3 control-label' for='textinput'>
                       {translate('app.user_info.name')}</label>
                     <div className='col-sm-9'>
-                      <input type='text' placeholder={translate('app.user_info.name')} className='form-control empty'
-                        value={this.state.user.name}
+                      <input type='text' placeholder={translate('app.user_info.name')}
+                        className='form-control empty'
+                        value={this.state.profile.name}
                         onChange={this.handleChangeInfo.bind(this, 'name')}/>
                     </div>
                   </div>
@@ -84,8 +134,9 @@ export default class UserInfo extends React.Component {
                     <label className='col-sm-3 control-label' for='textinput'>
                       {translate('app.user_info.phonenumber')}</label>
                     <div className='col-sm-9'>
-                      <input type='number' placeholder={translate('app.user_info.phonenumber')} className='form-control empty'
-                        value={this.state.user.phonenumber}
+                      <input type='number' placeholder={translate('app.user_info.phonenumber')}
+                        className='form-control empty'
+                        value={this.state.profile.phonenumber}
                         onChange={this.handleChangeInfo.bind(this, 'phonenumber')}/>
                     </div>
                   </div>
@@ -94,8 +145,9 @@ export default class UserInfo extends React.Component {
                     <label className='col-sm-3 control-label' for='textinput'>
                       {translate('app.user_info.job')}</label>
                     <div className='col-sm-9'>
-                      <input type='text' placeholder={translate('app.user_info.job')} className='form-control empty'
-                        value={this.state.user.job}
+                      <input type='text' placeholder={translate('app.user_info.job')}
+                        className='form-control empty'
+                        value={this.state.profile.job}
                         onChange={this.handleChangeInfo.bind(this, 'job')}/>
                     </div>
                   </div>
@@ -104,8 +156,9 @@ export default class UserInfo extends React.Component {
                     <label className='col-sm-3 control-label' for='textinput'>
                       {translate('app.user_info.description')}</label>
                     <div className='col-sm-9'>
-                      <input type='text' placeholder={translate('app.user_info.description')} className='form-control empty'
-                        value={this.state.user.description}
+                      <input type='text' placeholder={translate('app.user_info.description')}
+                        className='form-control empty'
+                        value={this.state.profile.description}
                         onChange={this.handleChangeInfo.bind(this, 'description')}/>
                     </div>
                   </div>
@@ -113,13 +166,14 @@ export default class UserInfo extends React.Component {
                   <div className='form-group'>
                     <div className='col-sm-offset-3 col-sm-3'>
                       <button className='btn btn-primary'
-                        onClick={this.handle_updateInfo.bind(this)}>{translate('app.user_info.update')}</button>
+                        onClick={this.handleUpdateInfo.bind(this)}>
+                        {translate('app.user_info.update')}</button>
                     </div>
                   </div>
 
                 </fieldset>
-              </form>
-              <form className='form-horizontal' role='form'>
+              </div>
+              <div className='form-horizontal'>
                 <fieldset>
 
                   <legend>{translate('app.user_info.change_pass')}</legend>
@@ -159,13 +213,14 @@ export default class UserInfo extends React.Component {
 
                   <div className='form-group'>
                     <div className='col-sm-offset-3 col-sm-3'>
-                      <button className='btn btn-primary' onClick={this.handle_updatePassword.bind(this)}>
+                      <button className='btn btn-primary'
+                        onClick={this.handleUpdatePassword.bind(this)}>
                         {translate('app.user_info.update')}</button>
                     </div>
                   </div>
 
                 </fieldset>
-              </form>
+              </div>
             </div>
 
           </div>
