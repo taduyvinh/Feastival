@@ -27,7 +27,9 @@ RemoveUnusedMethodsInControllersCheck: {
   except_methods: [
     ReactAppController#home,
     UsersController#show, UsersController#update,
-    BaseController#ensure_parameters_exist
+    BaseController#ensure_parameters_exist,
+    "Api::RestaurantsController#index",
+    "Api::RestaurantsController#show"
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
