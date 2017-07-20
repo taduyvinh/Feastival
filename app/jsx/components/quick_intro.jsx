@@ -1,4 +1,4 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
 
 export default class QuickIntro extends React.Component{
   render() {

@@ -1,4 +1,4 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
 
 export default class Footer extends React.Component{
   render() {

@@ -1,4 +1,4 @@
-var translate = require('counterpart');
+let translate = require('counterpart');
 
 export default class OurStory extends React.Component{
   render() {
