@@ -6,6 +6,7 @@ namespace :api, defaults: {format: "json"} do
     post "sign_in", to: "sessions#create"
     delete "sign_out", to: "sessions#destroy"
     resources :users, only: [:show, :update]
+    resources :restaurants, only: [:show, :index, :update]
   end
 
   scope module: :v1,

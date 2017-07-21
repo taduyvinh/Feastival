@@ -15,3 +15,10 @@ roles = %w(normal manager admin)
     email: "#{user}@gmail.com",
     password: "123456")
 end
+
+10.times do |n|
+  title = Faker::Name.name
+  address = Faker::Address.street_address
+  Restaurant.create! title: title,
+    address: address
+end

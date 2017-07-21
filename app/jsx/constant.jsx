@@ -4,6 +4,7 @@ export const USER_INFO_URL = BASE_URL + '/users/'
 export const API_USER_INFO_URL = BASE_URL + '/api/users/'
 export const API_SIGN_IN_URL = BASE_URL + '/api/sign_in'
 export const API_SIGN_OUT_URL = BASE_URL + '/api/sign_out'
+export const API_RESTAURANTS_URL = BASE_URL + '/api/restaurants'
 
 let header = {}
 if (localStorage.festival_user != null) {
