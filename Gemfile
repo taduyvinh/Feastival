@@ -21,6 +21,7 @@ gem "rolify"
 gem "bootstrap-sass"
 gem "simple_token_authentication"
 gem "font-awesome-sass"
+gem "faker"
 
 group :development, :test do
   gem "pry"
