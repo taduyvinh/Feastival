@@ -29,12 +29,12 @@ export default class Navbar extends React.Component {
         break;
     }
 
-    if (localStorage.festival_user != null) {
-      let festival_user = JSON.parse(localStorage.festival_user);
+    if (localStorage.feastival_user != null) {
+      let feastival_user = JSON.parse(localStorage.feastival_user);
       this.setState({
-        email: festival_user.email,
+        email: feastival_user.email,
         is_signed: true,
-        user_id: festival_user.user_id,
+        user_id: feastival_user.user_id,
         locale: locale_name
       });
     }
@@ -46,7 +46,7 @@ export default class Navbar extends React.Component {
   signOut() {
     axios.delete(constant.API_SIGN_OUT_URL, constant.headers)
       .then((response) => {
-        localStorage.removeItem('festival_user');
+        localStorage.removeItem('feastival_user');
         window.location = constant.SIGN_IN_URL;
       })
       .catch(function (error) {
@@ -61,11 +61,15 @@ export default class Navbar extends React.Component {
   }
 
   settingBtnClick() {
-    window.location = constant.USER_INFO_URL + this.state.user_id;
+    window.location = constant.CURRENT_USER_INFO_URL;
   }
 
   homeClick() {
     window.location = constant.BASE_URL;
+  }
+
+  signUpClick() {
+    window.location = constant.SIGN_UP_URL;
   }
 
   signInClick() {
@@ -117,7 +121,9 @@ export default class Navbar extends React.Component {
                 </ul>
               </li>
               {!this.state.is_signed ?
-                ([<li><a>{translate('app.login.sign_up')}</a></li>,
+                ([<li onClick={this.signUpClick.bind(this)}>
+                    <a>{translate('app.login.sign_up')}</a>
+                  </li>,
                   <li onClick={this.signInClick.bind(this)}>
                     <a>{translate('app.login.sign_in')}</a>
                   </li>]) :

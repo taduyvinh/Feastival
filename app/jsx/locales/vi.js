@@ -36,7 +36,7 @@ module.exports = {
         'title': 'Câu chuyện của chúng tôi bắt đầu ở phương Đông',
         'content': 'Tôi là một nhiếp ảnh gia. Click vào đây để thêm đoạn văn\
           của bạn và chỉnh sửa tôi.\
-          Rất dễ. Chỉ cần click vào "Edit text" hoặc click đúp vào tôi\
+          Rất dễ. Chỉ cần click vào \'Edit text\' hoặc click đúp vào tôi\
           để thêm nội dung của bạn và\
           thay đổi font. Dễ dàng kéo thả\
           tôi vào bất cứ chỗ nào bạn thích ở trang của bạn.\
@@ -69,8 +69,7 @@ module.exports = {
       },
       'follow': 'Theo dõi',
       'copyright': '©2017 by Fang\'s Noodles.\
-        Proudly created with Wix.com',
-      'user': 'Người dùng'
+        Proudly created with Wix.com'
     },
     user_info: {
       user_info: 'Thôn tin người dùng',
@@ -91,7 +90,24 @@ module.exports = {
       groups: 'Nhóm',
       no_groups: 'Không có nhóm',
       more_groups: 'Danh sách nhóm'
-
+    signup: {
+      register: 'Tạo tài khoản ',
+      email: 'Email',
+      password: 'Mật khẩu',
+      password_confirm: 'Nhập lại mật khẩu',
+      submit: 'Đăng ký',
+      got_account: 'Đã có tài khoản?',
+      login: 'Đăng nhập'
+    },
+    groups: {
+      create: {
+        category: 'Hình thức',
+        submit: 'Tạo nhóm',
+        title: 'Tên nhóm',
+        time: 'Thời gian',
+        description: 'Mô tả',
+        address: 'Địa chỉ'
+      }
     }
   }
 };

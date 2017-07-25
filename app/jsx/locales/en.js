@@ -26,7 +26,7 @@ module.exports = {
       'log_out': 'Log out',
       'setting': 'Settings',
       'slogan': 'Taste of the East',
-      'introduce': 'San Francisco"s Most Acclaimed Asian Restaurant',
+      'introduce': 'San Francisco\'s Most Acclaimed Asian Restaurant',
       'address': {
         'title': 'ADDRESS',
         'content_1': '500 Terry Francois Street',
@@ -35,7 +35,7 @@ module.exports = {
       'our_story': {
         'title': 'Our Story Begins In The East',
         'content': 'I\'m a paragraph. Click here to add your own text and edit me.\
-          It\'s easy. Just click "Edit Text" or double click me\
+          It\'s easy. Just click \'Edit Text\' or double click me\
           to add your own content and\
           make changes to the font. Feel free to drag and\
           drop me anywhere you like on your page.\
@@ -68,7 +68,6 @@ module.exports = {
       'follow': 'FOLLOW',
       'copyright': '©2017 by Fang\'s Noodles.\
         Proudly created with Wix.com',
-      'user': 'User'
     },
     user_info: {
       user_info: 'User Information',
@@ -89,6 +88,22 @@ module.exports = {
       groups: 'Groups',
       no_groups: 'No groups',
       more_groups: 'More Groups'
+      register: 'Sign up',
+      email: 'Email',
+      password: 'Password',
+      password_confirm: 'Re-enter password',
+      submit: 'Register',
+      got_account: 'Already have an account?',
+      login: 'Log in'
+    },
+    groups: {
+      create: {
+        submit: 'Submit',
+        title: 'Title',
+        time: 'Time',
+        description: 'Description',
+        address: 'Address'
+      }
     }
   }
 };

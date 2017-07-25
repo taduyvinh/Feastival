@@ -35,7 +35,7 @@ module.exports = {
       'our_story': {
         'title': '私たちの物語は東に始まります',
         'content': '私は段落です。 あなた自身のテキストを追加して私を編集するに\
-          はここをクリックしてください。 それは簡単です。 "テキストの編集"をクリックするか、\
+          はここをクリックしてください。 それは簡単です。 \'テキストの編集\'をクリックするか、\
           自分のコンテンツを追加してフォントを変更するには、私をダブルクリックしてください\
           あなたのページに好きな場所にドラッグ＆ドロップしても構いません。 私は物語を伝えて\
           あなたのユーザーにあなたについてもう少し分かってもらうための素晴らしい場所です。\
@@ -66,7 +66,6 @@ module.exports = {
       'follow': '沿う',
       'copyright': '©2017 by Fang\'s Noodles.\
         Proudly created with Wix.com',
-      'user': 'ユ-ザ-'
     },
     user_info: {
       user_info: 'ユ-ザ-情報',
@@ -87,6 +86,23 @@ module.exports = {
       groups: 'グループ',
       no_groups: 'グループがありません',
       more_groups: 'グループ一覧'
+    signup: {
+      register: '登録',
+      email: 'メール',
+      password: 'パスワード',
+      password_confirm: 'パスワードを再入力',
+      submit: 'サインアップ',
+      got_account: 'すでにアカウントをお持ちですか？',
+      login: 'ログイン'
+    },
+    groups: {
+      create: {
+        submit: '提出する',
+        title: 'タイトル',
+        time: '時間',
+        description: '説明',
+        address: 'アドレス'
+      }
     }
   }
 };
