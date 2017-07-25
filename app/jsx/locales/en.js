@@ -83,6 +83,12 @@ module.exports = {
       current_pass: 'Current Password',
       new_pass: 'New Password',
       repeat_pass: 'Repeat Password'
+    },
+    map: {
+      searchbox: 'Enter address',
+      groups: 'Groups',
+      no_groups: 'No groups',
+      more_groups: 'More Groups'
     }
   }
 };

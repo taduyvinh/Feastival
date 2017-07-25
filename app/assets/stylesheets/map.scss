@@ -1,0 +1,28 @@
+$gray-darker: #969623;
+
+.map-body {
+  overflow-y: hidden;
+}
+
+.map {
+  height: 650px;
+}
+
+.info {
+  background-color: $gray-darker;
+  display: block;
+  position: fixed;
+  height: 100%;
+  top: 0px;
+  transition: .25s;
+  z-index: 100;
+}
+
+.info-hide {
+  visibility: hidden;
+  width: 0;
+}
+
+.info-show {
+  width: 400px;
+}
