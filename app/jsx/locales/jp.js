@@ -81,6 +81,12 @@ module.exports = {
       current_pass: '現在のパスワ-ド',
       new_pass: '新しいパスワ-ド',
       repeat_pass: 'パスワ-ドを再度入力してください'
+    },
+    map: {
+      searchbox: 'アドレスを入力してください',
+      groups: 'グループ',
+      no_groups: 'グループがありません',
+      more_groups: 'グループ一覧'
     }
   }
 };

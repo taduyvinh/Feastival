@@ -85,6 +85,13 @@ module.exports = {
       current_pass: 'Mật khẩu hiện thời',
       new_pass: 'Mật khẩu mới',
       repeat_pass: 'Nhập lại mật khẩu'
+    },
+    map: {
+      searchbox: 'Nhập địa chỉ',
+      groups: 'Nhóm',
+      no_groups: 'Không có nhóm',
+      more_groups: 'Danh sách nhóm'
+
     }
   }
 };
