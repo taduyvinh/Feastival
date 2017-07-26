@@ -27,4 +27,32 @@ RSpec.describe Group, type: :model do
     it {is_expected.to belong_to :creator}
     it {is_expected.to belong_to :restaurant}
   end
+
+  describe "validations" do
+    let(:group) {FactoryGirl.create :group}
+    it "invalidate title" do
+      group.title = ""
+      expect(group).not_to be_valid
+    end
+
+    it "invalidate address" do
+      group.address = ""
+      expect(group).not_to be_valid
+    end
+
+    it "invalidate latitude" do
+      group.latitude = ''
+      expect(group).not_to be_valid
+    end
+
+    it "invalidate longitude" do
+      group.longitude = ''
+      expect(group).not_to be_valid
+    end
+
+    it "invalidate invalid time" do
+      group.time = 2.days.ago
+      expect(group).not_to be_valid
+    end
+  end
 end

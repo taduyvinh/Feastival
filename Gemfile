@@ -22,6 +22,7 @@ gem "bootstrap-sass"
 gem "simple_token_authentication"
 gem "font-awesome-sass"
 gem "faker"
+gem "geocoder"
 
 group :development, :test do
   gem "pry"

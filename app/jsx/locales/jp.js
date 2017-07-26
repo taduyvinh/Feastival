@@ -86,6 +86,7 @@ module.exports = {
       groups: 'グループ',
       no_groups: 'グループがありません',
       more_groups: 'グループ一覧'
+    },
     signup: {
       register: '登録',
       email: 'メール',
@@ -97,6 +98,7 @@ module.exports = {
     },
     groups: {
       create: {
+        category: 'カテゴリー',
         submit: '提出する',
         title: 'タイトル',
         time: '時間',

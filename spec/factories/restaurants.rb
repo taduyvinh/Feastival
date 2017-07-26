@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :restaurant do
     category
-    manager
+    manager {FactoryGirl.create :manager}
     title "Delicious"
     address "434 Tran Khat Chan"
     latitude 12.21262361

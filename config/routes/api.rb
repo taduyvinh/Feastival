@@ -7,6 +7,9 @@ namespace :api, defaults: {format: "json"} do
     delete "sign_out", to: "sessions#destroy"
     resources :users, only: [:show, :update]
     resources :restaurants, only: [:show, :index, :update]
+    resources :groups, except: [:edit] do
+      resources :group_users, only: [:create, :update]
+    end
   end
 
   scope module: :v1,

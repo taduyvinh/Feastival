@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :group do
     category
     restaurant
-    creator
+    creator {FactoryGirl.create :creator}
     title "Eating out"
     address "434 Tran Khat Chan"
     latitude 12.23346246

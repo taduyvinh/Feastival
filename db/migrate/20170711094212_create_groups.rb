@@ -10,8 +10,8 @@ class CreateGroups < ActiveRecord::Migration[5.1]
       t.float :latitude
       t.float :longitude
       t.integer :size
-      t.boolean :status
-      t.boolean :completed
+      t.boolean :status, default: false
+      t.boolean :completed, default: false
       t.text :description
 
       t.timestamps
