@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170713013831) do
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
     t.integer "size"
-    t.boolean "status"
-    t.boolean "completed"
+    t.boolean "status", default: false
+    t.boolean "completed", default: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

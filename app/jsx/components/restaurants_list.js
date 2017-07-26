@@ -9,7 +9,7 @@ export default class RestaurantsList extends React.Component {
     super(props);
     this.state = {
       restaurants: []
-    }
+    };
   }
 
   componentWillMount() {
@@ -27,10 +27,10 @@ export default class RestaurantsList extends React.Component {
       <div className='restaurants'>
         {
           this.state.restaurants.map(restaurant => {
-            return <Restaurant restaurant={restaurant} key={restaurant.id} />
+            return <Restaurant restaurant={restaurant} key={restaurant.id} />;
           })
         }
       </div>
-    )
+    );
   }
 }

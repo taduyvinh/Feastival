@@ -18,5 +18,5 @@ const Routes = (props) => (
     <Route path='/restaurants' component={RestaurantsList}/>
     <Route path='/showmap' component={ShowMap}/>
   </Router>
-)
-export default Routes
+);
+export default Routes;

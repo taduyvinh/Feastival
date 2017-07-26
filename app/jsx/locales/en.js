@@ -88,6 +88,8 @@ module.exports = {
       groups: 'Groups',
       no_groups: 'No groups',
       more_groups: 'More Groups'
+    },
+    signup: {
       register: 'Sign up',
       email: 'Email',
       password: 'Password',
@@ -98,6 +100,7 @@ module.exports = {
     },
     groups: {
       create: {
+        category: 'Category',
         submit: 'Submit',
         title: 'Title',
         time: 'Time',

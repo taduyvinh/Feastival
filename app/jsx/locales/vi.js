@@ -90,6 +90,7 @@ module.exports = {
       groups: 'Nhóm',
       no_groups: 'Không có nhóm',
       more_groups: 'Danh sách nhóm'
+    },
     signup: {
       register: 'Tạo tài khoản ',
       email: 'Email',
