@@ -1,6 +1,6 @@
 let translate = require('counterpart');
 import update from 'react-addons-update';
-import * as constant from  '../constant'
+import * as constant from  '../../constant'
 import axios from 'axios';
 
 export default class UserUpdate extends React.Component {

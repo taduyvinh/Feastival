@@ -1,6 +1,6 @@
 let translate = require('counterpart');
 import axios from 'axios';
-import * as constant from  '../constant';
+import * as constant from  '../../constant';
 
 export default class Navbar extends React.Component {
   constructor(props) {

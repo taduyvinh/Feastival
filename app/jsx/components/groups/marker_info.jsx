@@ -1,7 +1,7 @@
 import StarRatingComponent from 'react-star-rating-component';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
-import * as constant from  '../constant';
+import * as constant from  '../../constant';
 
 let translate = require('counterpart');
 
