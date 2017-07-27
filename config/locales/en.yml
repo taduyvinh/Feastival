@@ -3,6 +3,7 @@ en:
   app_name : "Festival"
   object_not_found: "Not available!"
   api:
+    not_authorized: "Unauthorized access"
     missing_params: "Missing parameter"
     invalid_token: "Invalid token"
     restaurants:
@@ -19,3 +20,17 @@ en:
       sign_up_success: "Registered successfuly"
       sign_up_fail: "Can not register account"
       not_authorized: "Unauthorized access"
+    group:
+      index_success: "Loaded all groups successfully "
+      show_success: "Show group successfully"
+      create_success: "Created group!"
+      create_fail: "Can not create group"
+      update_success: "Updated successfully!"
+      update_fail: "Can not update group"
+    group_user:
+      destroy: "Removed group_user join relation"
+      create_success: "User joined group successfully"
+      create_fail: "User can not join this group"
+      update_success: "Approved join request successfully"
+      update_fail: "Can not approve join request"
+      group_not_found: "Group not found!"

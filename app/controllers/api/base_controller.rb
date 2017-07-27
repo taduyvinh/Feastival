@@ -1,7 +1,14 @@
 module Api
   class BaseController < ActionController::API
+    include CanCan::ControllerAdditions
     include Authenticable
     acts_as_token_authentication_handler_for User, fallback: :none
+
+    rescue_from CanCan::AccessDenied do
+      render json: {
+        messages: I18n.t("api.not_authorized")
+      }, status: :unauthorized
+    end
 
     private
 

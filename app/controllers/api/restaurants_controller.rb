@@ -2,7 +2,7 @@ module Api
   class RestaurantsController < BaseController
     attr_reader :restaurant
 
-    before_action :find_object
+    before_action :find_object, only: [:show, :update]
     before_action :correct_user, only: [:update]
 
     def index
@@ -31,7 +31,7 @@ module Api
     private
 
     def correct_user
-      return if restaurant.manager_id == current_user.id
+      return if restaurant.manager_id.eql? current_user.id
       render json: {
         message: I18n.t("api.restaurants.dont_have_permission")
       }, status: :forbidden
