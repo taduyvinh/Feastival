@@ -107,6 +107,11 @@ module.exports = {
         time: 'Time',
         description: 'Description',
         address: 'Address'
+      },
+      view: {
+        creator: 'Creator',
+        members: 'Members',
+        join: 'Join'
       }
     },
     restaurant_info: {
@@ -118,5 +123,6 @@ module.exports = {
       description: 'Restaurant description',
       update: 'Update'
     }
+
   }
 };

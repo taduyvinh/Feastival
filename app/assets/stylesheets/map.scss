@@ -5,7 +5,7 @@ $gray-darker: #969623;
 }
 
 .map {
-  height: 650px;
+  height: calc(100vh - 53px);
 }
 
 .info {
