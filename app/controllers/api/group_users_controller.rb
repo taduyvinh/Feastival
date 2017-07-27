@@ -63,6 +63,7 @@ module Api
       }, status: :ok
     end
 
+    def response_update_fail
       render json: {
         message: I18n.t("api.group_user.update_fail")
       }, status: :unprocessable_entity

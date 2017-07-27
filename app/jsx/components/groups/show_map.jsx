@@ -2,6 +2,8 @@ import {withGoogleMap, GoogleMap, Marker, InfoWindow}
   from 'react-google-maps/lib';
 import SearchBox from 'react-google-maps/lib/places/SearchBox';
 import MakerInfo from './marker_info';
+import axios from 'axios';
+import * as constant from  '../constant';
 
 let classNames = require('classnames');
 let translate = require('counterpart');
@@ -63,7 +65,9 @@ export default class ShowMap extends React.Component {
       },
       markers: [],
       info_show: false,
-      name: ''
+      name: '',
+      restaurants: [],
+      groups: []
     };
   }
 
@@ -89,6 +93,16 @@ export default class ShowMap extends React.Component {
 
   componentWillMount() {
     this.getCurrentLocation();
+    axios.get(constant.API_GROUPS_URL, constant.headers)
+      .then(response => {
+        this.setState({
+          groups: response.data.groups,
+          restaurants: response.data.restaurants
+        })
+      })
+      .catch(error => {
+        alert(error);
+      });
   }
 
   handleMarkerClick(targetMarker) {

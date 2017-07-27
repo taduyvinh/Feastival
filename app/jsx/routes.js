@@ -9,6 +9,7 @@ import RestaurantInfo from './components/restaurants/restaurant_info';
 import ShowMap from './components/groups/show_map';
 import UserUpdate from './components/users/user_update';
 import Group_Overview from './components/groups/group_overview'
+import GroupCreate from './components/groups/create';
 
 const Routes = (props) => (
   <Router {...props}>
@@ -21,6 +22,7 @@ const Routes = (props) => (
     <Route path='/restaurants/:restaurant_id' component={RestaurantInfo}/>
     <Route path='/showmap' component={ShowMap}/>
     <Route path='/group-over-view' component={Group_Overview}/>
+    <Route path='/new-group' component={GroupCreate}/>
   </Router>
 );
 export default Routes;
