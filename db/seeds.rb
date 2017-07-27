@@ -10,10 +10,25 @@ roles = %w(normal manager admin)
 3.times {|role| Role.create name: roles[role]}
 
 
-("a".."c").each do |user|
+("a".."j").each do |user|
   User.create(
     email: "#{user}@gmail.com",
-    password: "123456")
+    password: "123456",
+  )
+end
+
+User.all.each do |user|
+  user.update_attributes(
+    profile_attributes: {
+      name: Faker::Name.name,
+      birthday: rand(40.years.ago..16.years.ago),
+      phonenumber: Faker::PhoneNumber.phone_number,
+      gender: rand(0..2),
+      job: Faker::Job.title,
+      avatar: Faker::Avatar.image,
+      description: Faker::Lorem.sentence
+    }
+  )
 end
 
 Category.create name: "Luxury"
@@ -46,7 +61,7 @@ end
 Restaurant.where(id: 1..5).each do |restaurant|
   restaurant.groups.create(
     category_id: restaurant.category_id,
-    creator_id: rand(1..3),
+    creator_id: rand(1..5),
     title: Faker::Lorem.sentence,
     address: restaurant.address,
     latitude: restaurant.latitude,
@@ -54,5 +69,12 @@ Restaurant.where(id: 1..5).each do |restaurant|
     time: rand(5.days.from_now..10.days.from_now),
     size: rand(2..10),
     description: Faker::Lorem.paragraph
+  )
+end
+
+10.times do
+  GroupUser.create(
+    group_id: rand(1..5),
+    user_id: rand(6..10)
   )
 end

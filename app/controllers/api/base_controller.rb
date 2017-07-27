@@ -1,5 +1,6 @@
 module Api
   class BaseController < ActionController::API
+    include CanCan::ControllerAdditions
     include Authenticable
     acts_as_token_authentication_handler_for User, fallback: :none
 

@@ -29,7 +29,8 @@ RemoveUnusedMethodsInControllersCheck: {
     UsersController#show, UsersController#update,
     BaseController#ensure_parameters_exist,
     "Api::RestaurantsController#index",
-    "Api::RestaurantsController#show"
+    "Api::RestaurantsController#show",
+    "Api::GroupsController#index"
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
