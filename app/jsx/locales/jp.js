@@ -104,6 +104,11 @@ module.exports = {
         time: '時間',
         description: '説明',
         address: 'アドレス'
+      },
+      view: {
+        creator: '作った人',
+        members: '会員',
+        join: '参加'
       }
     },
     restaurant_info: {

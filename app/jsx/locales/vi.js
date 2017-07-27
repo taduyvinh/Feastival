@@ -108,6 +108,11 @@ module.exports = {
         time: 'Thời gian',
         description: 'Mô tả',
         address: 'Địa chỉ'
+      },
+      view: {
+        creator: 'Người tạo',
+        members: 'Thành viên',
+        join: 'Tham gia'
       }
     },
     restaurant_info: {
