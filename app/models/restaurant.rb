@@ -1,4 +1,8 @@
 class Restaurant < ApplicationRecord
+  UPDATE_PARAMS = [:category_id, :manager_id, :title,
+    :address, :latitude, :longitude, :description,
+    :phonenumber, :website, :is_approved].freeze
+
   belongs_to :category
   belongs_to :manager, class_name: User.name
 

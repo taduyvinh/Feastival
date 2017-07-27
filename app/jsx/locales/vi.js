@@ -109,6 +109,15 @@ module.exports = {
         description: 'Mô tả',
         address: 'Địa chỉ'
       }
+    },
+    restaurant_info: {
+      update_title: 'Cập nhật thông tin nhà hàng',
+      title: 'Tên nhà hàng',
+      address: 'Địa chỉ nhà hàng',
+      phonenumber: 'Số điện thoại',
+      website: 'Trang web',
+      description: 'Mô tả',
+      update: 'Cập nhật'
     }
   }
 };

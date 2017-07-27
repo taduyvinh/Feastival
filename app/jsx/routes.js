@@ -5,6 +5,7 @@ import Signup from './components/signup';
 import Login from './components/login';
 import UserInfo from './components/user_info';
 import RestaurantsList from './components/restaurants_list';
+import RestaurantInfo from './components/restaurant_info';
 import ShowMap from './components/show_map';
 import UserUpdate from './components/user_update';
 
@@ -16,6 +17,7 @@ const Routes = (props) => (
     <Route path='/my-profile' component={UserUpdate}/>
     <Route path='/users/:user_id' component={UserInfo}/>
     <Route path='/restaurants' component={RestaurantsList}/>
+    <Route path='/restaurants/:restaurant_id' component={RestaurantInfo}/>
     <Route path='/showmap' component={ShowMap}/>
   </Router>
 );

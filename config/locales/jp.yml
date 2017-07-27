@@ -1,0 +1,21 @@
+jp:
+  hello: "こんにちは世界"
+  app_name : "Festival"
+  object_not_found: "利用不可!"
+  api:
+    missing_params: "パラメ-タ-がありません"
+    invalid_token: "無効なト-クン"
+    restaurants:
+      create_success: "レストランを正常に作成する"
+      create_fail: "レストランの作成に失敗しました"
+      show_success: ""
+      dont_have_permission: "あなたは更新する権限がありません"
+      update_success: "アップデ-ト成功"
+      update_fail: "アップデートに失敗しました"
+    users:
+      show_success: ""
+      update_success: "更新されたプロフィール!"
+      update_fail: "プロファイルを更新できません"
+      sign_up_success: "正常に登録"
+      sign_up_fail: "アカウントを登録できません"
+      not_authorized: "不正アクセス"

@@ -105,6 +105,15 @@ module.exports = {
         description: '説明',
         address: 'アドレス'
       }
+    },
+    restaurant_info: {
+      update_title: 'レストラン情報アップデ-ト',
+      title: 'レストラン名',
+      address: 'レストラン場所',
+      phonenumber: '電話番号',
+      website: 'サイト',
+      description: 'レストランの説明',
+      update: 'アップデ-ト'
     }
   }
 };

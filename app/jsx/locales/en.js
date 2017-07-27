@@ -90,6 +90,7 @@ module.exports = {
       more_groups: 'More Groups'
     },
     signup: {
+      more_groups: 'More Groups',
       register: 'Sign up',
       email: 'Email',
       password: 'Password',
@@ -107,6 +108,15 @@ module.exports = {
         description: 'Description',
         address: 'Address'
       }
+    },
+    restaurant_info: {
+      update_title: 'Update restaurant info',
+      title: 'Restaurant name',
+      address: 'Restaurant address',
+      phonenumber: 'Restaurant phonenumber',
+      website: 'Restaurant website',
+      description: 'Restaurant description',
+      update: 'Update'
     }
   }
 };
