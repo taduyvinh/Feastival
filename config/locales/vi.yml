@@ -1,0 +1,21 @@
+vi:
+  hello: "Chào thế giới"
+  app_name : "Festival"
+  object_not_found: "Hiện không có!"
+  api:
+    missing_params: "Thiếu tham số"
+    invalid_token: "Token không hợp lệ"
+    restaurants:
+      create_success: "Tạo nhà hàng thành công"
+      create_fail: "Tạo nhà hàng không thành công"
+      show_success: ""
+      dont_have_permission: "Bạn không có quyền chỉnh sửa thông tin nhà hàng"
+      update_success: "Cập nhật thành công"
+      update_fail: "Cập nhật không thành công"
+    users:
+      show_success: ""
+      update_success: "Cập nhật hồ sơ thành công!"
+      update_fail: "Hồ sơ không thể cập nhật"
+      sign_up_success: "Đăng kí thành công"
+      sign_up_fail: "Không thể đăng kí tài khoản"
+      not_authorized: "Xác thực không thành công"

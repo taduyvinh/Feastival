@@ -2,6 +2,9 @@ module Api
   class RestaurantsController < BaseController
     attr_reader :restaurant
 
+    before_action :find_object
+    before_action :correct_user, only: [:update]
+
     def index
       render json: {
         restaurants: Restaurant.all
@@ -27,22 +30,29 @@ module Api
 
     private
 
+    def correct_user
+      return if restaurant.manager_id == current_user.id
+      render json: {
+        message: I18n.t("api.restaurants.dont_have_permission")
+      }, status: :forbidden
+    end
+
     def response_create_success
       render json: {
-        message: t("api.restaurants.create_success"),
+        message: I18n.t("api.restaurants.create_success"),
         restaurant: restaurant
       }, status: :ok
     end
 
     def response_create_fail
       render json: {
-        message: t("api.restaurants.create_fail")
+        message: I18n.t("api.restaurants.create_fail")
       }, status: :unprocessable_entity
     end
 
     def response_show_succcess
       render json: {
-        message: t("api.restaurants.show_success"),
+        message: I18n.t("api.restaurants.show_success"),
         restaurant_info: {
           restaurant: restaurant
         }
@@ -51,14 +61,14 @@ module Api
 
     def response_update_success
       render json: {
-        message: t("api.restaurants.update_success"),
-        user: user, profile: user.profile
+        message: I18n.t("api.restaurants.update_success"),
+        restaurant: restaurant
       }, status: :ok
     end
 
     def response_update_fail
       render json: {
-        message: t("api.users.update_fail")
+        message: I18n.t("api.restaurants.update_fail")
       }, status: :unprocessable_entity
     end
 
