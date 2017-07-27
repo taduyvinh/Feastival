@@ -1,7 +1,7 @@
 module Api
   class GroupsController < BaseController
     before_action :find_object, only: [:show, :update]
-    skip_before_action :authenticate_user_from_token
+    authorize_resource
 
     def index
       @groups = Group.all
@@ -16,8 +16,12 @@ module Api
     end
 
     def create
-      @group = Group.new group_params
-      group.save ? response_create_data : response_create_fail
+      @group = current_user.created_groups.create group_params
+      if group.save
+        response_create_data
+      else
+        response_create_fail
+      end
     end
 
     def show
@@ -42,7 +46,7 @@ module Api
 
     def response_index_data
       render json: {
-        message: I18n.t(".group.index.success"),
+        message: I18n.t(".group.index_success"),
         groups: groups,
         restaurants: restaurants
       }, status: :ok
@@ -50,34 +54,34 @@ module Api
 
     def response_show_data
       render json: {
-        message: I18n.t(".group.show.success"),
+        message: I18n.t(".group.show_success"),
         group: group
       }, status: :ok
     end
 
     def response_create_data
       render json: {
-        message: I18n.t(".groups.create.success"),
+        message: I18n.t(".groups.create_success"),
         group: group
       }, status: :ok
     end
 
     def response_create_fail
       render json: {
-        message: I18n.t(".group.create.fail")
+        message: I18n.t(".group.create_fail")
       }, status: :unprocessable_entity
     end
 
     def response_update_data
       render json: {
-        message: I18n.t(".groups.create.success"),
+        message: I18n.t(".groups.update_success"),
         group: group
       }, status: :ok
     end
 
     def response_update_fail
       render json: {
-        message: I18n.t("groups.create.fail")
+        message: I18n.t("groups.update_fail")
       }, status: :unprocessable_entity
     end
 
