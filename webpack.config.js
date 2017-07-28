@@ -18,7 +18,12 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loaders: ['babel?cacheDirectory'],
-    }]
+    },
+      {
+        test: /\.css$/,
+        loader:'style!css!'
+      }
+    ],
     },
   plugins: [
     new webpack.ProvidePlugin({
