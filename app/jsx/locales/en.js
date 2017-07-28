@@ -111,7 +111,8 @@ module.exports = {
       view: {
         creator: 'Creator',
         members: 'Members',
-        join: 'Join'
+        join: 'Join',
+        leave: 'Leave'
       }
     },
     restaurant_info: {

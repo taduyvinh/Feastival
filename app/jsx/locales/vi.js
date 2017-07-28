@@ -112,7 +112,8 @@ module.exports = {
       view: {
         creator: 'Người tạo',
         members: 'Thành viên',
-        join: 'Tham gia'
+        join: 'Tham gia',
+        leave: 'Rời nhóm'
       }
     },
     restaurant_info: {

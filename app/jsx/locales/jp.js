@@ -108,7 +108,8 @@ module.exports = {
       view: {
         creator: '作った人',
         members: '会員',
-        join: '参加'
+        join: '参加',
+        leave: '出る'
       }
     },
     restaurant_info: {
