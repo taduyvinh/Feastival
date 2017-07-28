@@ -1,14 +1,14 @@
 import React from 'react';
 import {Router, Route} from 'react-router';
-import Home from './components/static_pages';
-import Signup from './components/signup';
-import Login from './components/login';
-import UserInfo from './components/user_info';
-import RestaurantsList from './components/restaurants_list';
-import RestaurantInfo from './components/restaurant_info';
-import ShowMap from './components/show_map';
-import UserUpdate from './components/user_update';
-import Group_Overview from './components/group_overview'
+import Home from './components/static_pages/static_pages';
+import Signup from './components/users/signup';
+import Login from './components/users/login';
+import UserInfo from './components/users/user_info';
+import RestaurantsList from './components/restaurants/restaurants_list';
+import RestaurantInfo from './components/restaurants/restaurant_info';
+import ShowMap from './components/groups/show_map';
+import UserUpdate from './components/users/user_update';
+import Group_Overview from './components/groups/group_overview'
 
 const Routes = (props) => (
   <Router {...props}>

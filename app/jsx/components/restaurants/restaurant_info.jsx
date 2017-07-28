@@ -1,6 +1,6 @@
 let translate = require('counterpart');
 
-import * as constant from  '../constant';
+import * as constant from  '../../constant';
 
 import update from 'react-addons-update';
 import axios from 'axios';

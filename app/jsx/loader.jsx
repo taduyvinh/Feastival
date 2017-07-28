@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import {browserHistory} from 'react-router';
-import Footer from './components/footer';
-import Navbar from './components/navbar';
+import Footer from './components/static_pages/footer';
+import Navbar from './components/static_pages/navbar';
 
 let translate = require('counterpart');
 translate.registerTranslations('en', require('./locales/en'));
