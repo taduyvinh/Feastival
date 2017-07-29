@@ -12,6 +12,9 @@ module.exports = {
       email: 'Email'
     },
     'static-pages': {
+      new_group: 'Nhóm mới',
+      groups: 'Nhóm xung quanh',
+      restaurants: 'Nhà hàng',
       language: {
         vietnamese: 'Tiếng Việt',
         english: 'English',

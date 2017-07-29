@@ -12,6 +12,9 @@ module.exports = {
       email: 'Eメ-ル'
     },
     'static-pages': {
+      new_group: '新しいグループ',
+      groups: 'グループ',
+      restaurants: 'レストラン',
       language: {
         vietnamese: 'Tiếng Việt',
         english: 'English',

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170720061738) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.index ["group_id", "user_id"], name: "index_group_users_on_group_id_and_user_id"
     t.index ["group_id"], name: "index_group_users_on_group_id"
     t.index ["user_id", "group_id"], name: "index_group_users_on_user_id_and_group_id"
     t.index ["user_id"], name: "index_group_users_on_user_id"

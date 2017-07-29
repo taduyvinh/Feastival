@@ -49,12 +49,12 @@ $white: #fff;
 .max-lines {
   display: inline-block;
   line-height: 1.8em;
+  margin: 0 auto;
   max-height: 3.6em;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
-  margin: 0 auto;
 }
 
 .list-groups {
