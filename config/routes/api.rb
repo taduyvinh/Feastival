@@ -8,7 +8,7 @@ namespace :api, defaults: {format: "json"} do
     resources :users, only: [:show, :update]
     resources :restaurants, only: [:show, :index, :update]
     resources :groups, except: [:edit] do
-      resources :group_users, only: [:create, :update]
+      resources :group_users, except: [:show, :edit, :new]
     end
   end
 
