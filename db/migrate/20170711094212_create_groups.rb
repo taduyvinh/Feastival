@@ -7,8 +7,8 @@ class CreateGroups < ActiveRecord::Migration[5.1]
       t.string :title
       t.datetime :time
       t.string :address
-      t.float :latitude
-      t.float :longitude
+      t.float :latitude, limit: 30
+      t.float :longitude, limit: 30
       t.integer :size
       t.boolean :status, default: false
       t.boolean :completed, default: false

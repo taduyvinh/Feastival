@@ -22,30 +22,22 @@ const INPUT_STYLE = {
 export default class MarkerInfo extends React.Component {
   constructor(props) {
     super(props);
+    let restaurant = props.restaurant;
     this.state = {
       rating: 1,
       isShowingModal: false,
-      name: 'aaaa',
-      more_btn: '.....',
-      groups: [
-        {
-          img: 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg',
-          name: 'Group 1'
-        },
-        {
-          img: 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg',
-          name: 'Group 2'
-        },
-        {
-          img: 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg',
-          name: 'Group 3'
-        },
-        {
-          img: 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg',
-          name: 'Group 4xzczxcxzcxzcxzcxzcxzczxczxcx'
-        }
-      ]
+      name: props.name,
+      more_btn: '...',
+      groups: restaurant ? restaurant.groups : []
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let restaurant = nextProps.restaurant;
+    this.setState({
+      name: nextProps.name,
+      groups: restaurant ? restaurant.groups : []
+    })
   }
 
   autoComplete() {
@@ -71,14 +63,6 @@ export default class MarkerInfo extends React.Component {
   render() {
     return (
       <section>
-        <div className='search-input'>
-          <input type='text' id='autocomplete'
-            className='search-input-body'
-            onFocus={this.autoComplete.bind(this)}
-            style={INPUT_STYLE}
-            placeholder={translate('app.map.searchbox')}
-          />
-        </div>
         <div className='text-center tools'>
           <h1><p></p></h1>
         </div>
@@ -95,7 +79,9 @@ export default class MarkerInfo extends React.Component {
             onStarClick={this.onStarClick.bind(this)}
           />
         </div>
-        <h1><p className='restaurant-name text-center'>{this.state.name}</p></h1>
+        <h1>
+          <p className='restaurant-name text-center'>{this.state.name}</p>
+        </h1>
         <hr/>
         <div className='text-center'>
           <div className='groups'><p>{translate('app.map.groups')}</p></div>
@@ -110,19 +96,24 @@ export default class MarkerInfo extends React.Component {
   renderGroups() {
     if (this.state.groups.length == 0) return <p>{translate('app.map.no_groups')}</p>;
     let first_three_groups =
-      this.state.groups.filter((group, index) => (index < 3)).map((group, index) => {
+      this.state.groups.filter((group, index) => (index < 3))
+        .map((group, index) => {
         return (
-          <div className='col-md-3 pmd-card pmd-z-depth-1 group-card' key={index}>
-            <img src={group.img} className='image'/>
+          <div className='col-md-3 pmd-card pmd-z-depth-1 group-card'
+            key={index}
+            onClick=handleGroupClick
+            >
+            <img src={group.creator.profile.avatar}
+              className='image'/>
             <OverlayTrigger
               placement='right'
               overlay={
                 <Tooltip id='tooltip'>
                   <strong style={{textAlign: 'left'}}>
-                    <p>{group.name}</p>
+                    <p>{group.title}</p>
                   </strong>
                 </Tooltip>}>
-              <p className='max-lines'>{group.name}</p>
+              <p className='max-lines'>{group.title}</p>
             </OverlayTrigger>
           </div>
         )
@@ -131,7 +122,7 @@ export default class MarkerInfo extends React.Component {
 
     return [
       first_three_groups,
-      <div onClick={this.handleClick.bind(this)} className='col-md-1'>
+      <div onClick={this.handleClick.bind(this)} className='col-md-1' key={4}>
         <h1>{this.state.more_btn}</h1>
         {
           this.state.isShowingModal &&
@@ -146,7 +137,7 @@ export default class MarkerInfo extends React.Component {
                         return (
                           <div key={index} className='row list-group-item group-item'>
                             <div className='col-md-6'>
-                              <p className='max-lines'>{group.name}</p>
+                              <p className='max-lines'>{group.title}</p>
                             </div>
                           </div>
                         )
@@ -154,7 +145,6 @@ export default class MarkerInfo extends React.Component {
                   }
                 </div>
               </div>
-
             </ModalDialog>
           </ModalContainer>
         }

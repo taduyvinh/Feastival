@@ -54,11 +54,46 @@ User.with_role(:manager).each do |manager|
     address: Faker::Address.street_address,
     is_approved: true,
     latitude: rand(20.990127..21.0312335),
-    longitude: rand(105.795982..105.856032)
+    longitude: rand(105.795982..105.856032),
+    phonenumber: Faker::PhoneNumber.phone_number,
+    website: Faker::Internet.url
   )
 end
 
 Restaurant.where(id: 1..10).each do |restaurant|
+  restaurant.groups.create(
+    category_id: restaurant.category_id,
+    creator_id: rand(1..10),
+    title: Faker::Lorem.sentence,
+    address: restaurant.address,
+    latitude: restaurant.latitude,
+    longitude: restaurant.longitude,
+    time: rand(5.days.from_now..10.days.from_now),
+    size: rand(2..10),
+    description: Faker::Lorem.paragraph
+  )
+  restaurant.groups.create(
+    category_id: restaurant.category_id,
+    creator_id: rand(1..10),
+    title: Faker::Lorem.sentence,
+    address: restaurant.address,
+    latitude: restaurant.latitude,
+    longitude: restaurant.longitude,
+    time: rand(5.days.from_now..10.days.from_now),
+    size: rand(2..10),
+    description: Faker::Lorem.paragraph
+  )
+  restaurant.groups.create(
+    category_id: restaurant.category_id,
+    creator_id: rand(1..10),
+    title: Faker::Lorem.sentence,
+    address: restaurant.address,
+    latitude: restaurant.latitude,
+    longitude: restaurant.longitude,
+    time: rand(5.days.from_now..10.days.from_now),
+    size: rand(2..10),
+    description: Faker::Lorem.paragraph
+  )
   restaurant.groups.create(
     category_id: restaurant.category_id,
     creator_id: rand(1..10),

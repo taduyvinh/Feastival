@@ -19,6 +19,9 @@ module.exports = {
       email: 'Email'
     },
     'static-pages': {
+      new_group: 'New group',
+      groups: 'Groups',
+      restaurants: 'Restaurants',
       language: {
         vietnamese: 'Tiếng Việt',
         english: 'English',
@@ -94,7 +97,8 @@ module.exports = {
       searchbox: 'Enter address',
       groups: 'Groups',
       no_groups: 'No groups',
-      more_groups: 'More Groups'
+      more_groups: 'More Groups',
+      my_location: 'You are here!'
     },
     signup: {
       more_groups: 'More Groups',
@@ -131,6 +135,5 @@ module.exports = {
       description: 'Restaurant description',
       update: 'Update'
     }
-
   }
 };

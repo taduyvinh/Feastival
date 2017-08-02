@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170720061738) do
     t.string "title"
     t.datetime "time"
     t.string "address"
-    t.float "latitude", limit: 24
-    t.float "longitude", limit: 24
+    t.float "latitude", limit: 53
+    t.float "longitude", limit: 53
     t.integer "size"
     t.boolean "status", default: false
     t.boolean "completed", default: false
@@ -108,8 +108,8 @@ ActiveRecord::Schema.define(version: 20170720061738) do
     t.integer "manager_id"
     t.string "title"
     t.text "address"
-    t.float "latitude", limit: 24
-    t.float "longitude", limit: 24
+    t.float "latitude", limit: 53
+    t.float "longitude", limit: 53
     t.text "description"
     t.string "phonenumber"
     t.string "website"

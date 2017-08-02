@@ -19,6 +19,9 @@ module.exports = {
       email: 'Eメ-ル'
     },
     'static-pages': {
+      new_group: '新しいグループ',
+      groups: 'グループ',
+      restaurants: 'レストラン',
       language: {
         vietnamese: 'Tiếng Việt',
         english: 'English',
@@ -92,7 +95,8 @@ module.exports = {
       searchbox: 'アドレスを入力してください',
       groups: 'グループ',
       no_groups: 'グループがありません',
-      more_groups: 'グループ一覧'
+      more_groups: 'グループ一覧',
+      my_location: 'あなたはここにいる'
     },
     signup: {
       register: '登録',

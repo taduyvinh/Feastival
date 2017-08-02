@@ -6,10 +6,12 @@ import Login from './components/users/login';
 import UserInfo from './components/users/user_info';
 import RestaurantsList from './components/restaurants/restaurants_list';
 import RestaurantInfo from './components/restaurants/restaurant_info';
-import ShowMap from './components/groups/show_map';
+import GroupIndex from './components/groups/index';
 import UserUpdate from './components/users/user_update';
-import GroupOverView from './components/groups/group_overview';
-import Group_Chat from './components/groups/group_chat';
+import GroupShowInfo from './components/groups/show_info';
+import GroupShow from './components/groups/show';
+import GroupCreate from './components/groups/create';
+import GroupUserIndex from './components/group_users/index';
 
 const Routes = (props) => (
   <Router {...props}>
@@ -20,9 +22,11 @@ const Routes = (props) => (
     <Route path='/users/:user_id' component={UserInfo}/>
     <Route path='/restaurants' component={RestaurantsList}/>
     <Route path='/restaurants/:restaurant_id' component={RestaurantInfo}/>
-    <Route path='/showmap' component={ShowMap}/>
-    <Route path='/group-over/:group_id' component={GroupOverView}/>
-    <Route path='/groups/:group_id' component={Group_Chat}/>
+    <Route path='/groups' component={GroupIndex}/>
+    <Route path='/groups/:group_id' component={GroupShow}/>
+    <Route path='/groups/:group_id/info' component={GroupShowInfo}/>
+    <Route path='/new-group' component={GroupCreate}/>
+    <Route path='/groups/:group_id/requests' component={GroupUserIndex} />
   </Router>
 );
 export default Routes;

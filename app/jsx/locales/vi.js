@@ -19,6 +19,9 @@ module.exports = {
       email: 'Email'
     },
     'static-pages': {
+      new_group: 'Nhóm mới',
+      groups: 'Nhóm xung quanh',
+      restaurants: 'Nhà hàng',
       language: {
         vietnamese: 'Tiếng Việt',
         english: 'English',
@@ -96,7 +99,8 @@ module.exports = {
       searchbox: 'Nhập địa chỉ',
       groups: 'Nhóm',
       no_groups: 'Không có nhóm',
-      more_groups: 'Danh sách nhóm'
+      more_groups: 'Danh sách nhóm',
+      my_location: 'Bạn đang ở đây!'
     },
     signup: {
       register: 'Tạo tài khoản ',

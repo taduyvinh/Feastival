@@ -1,11 +1,12 @@
 module Api
   class GroupsController < BaseController
+    skip_before_action :authenticate_user_from_token
     before_action :find_object, only: [:show, :update]
     authorize_resource
 
     def index
-      @groups = Group.all
-      @restaurants = Restaurant.joins(:groups).distinct
+      load_groups
+      load_restaurants
       response_index_data
     end
 
@@ -37,6 +38,16 @@ module Api
 
     attr_reader :group, :groups, :restaurants, :categories
 
+    def load_groups
+      @groups = Group.not_restaurant.displayed params[:lat], params[:lng],
+        params[:distance]
+    end
+
+    def load_restaurants
+      @restaurants = Restaurant.joins(:groups).distinct.displayed params[:lat],
+        params[:lng], params[:distance]
+    end
+
     def response_new_data
       render json: {
         restaurant: restaurants,
@@ -46,16 +57,19 @@ module Api
 
     def response_index_data
       render json: {
-        message: I18n.t(".group.index_success"),
-        groups: groups,
-        restaurants: restaurants
-      }, status: :ok
+        restaurants: restaurants.as_json(include: :groups),
+        groups: groups
+      }
     end
 
     def response_show_data
+      group_user = group.group_users.find_by user: current_user
       render json: {
         message: I18n.t(".group.show_success"),
-        group: group
+        group: group,
+        users: group.joined_users.as_json(include: :profile),
+        group_user: group_user,
+        creator: group.creator.as_json(include: :profile)
       }, status: :ok
     end
 
