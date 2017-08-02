@@ -2,6 +2,7 @@ let translate = require('counterpart');
 import axios from 'axios';
 import * as constant from  '../../constant';
 import {Route, Link} from 'react-router';
+import AlertContainer from 'react-alert';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -15,7 +16,16 @@ export default class Login extends React.Component {
     }
   }
 
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
+  }
+
   handleSubmit(event) {
+    let self = this;
     event.preventDefault();
     let formData = new FormData();
     formData.append('sign_in[email]', this.state.email);
@@ -32,7 +42,7 @@ export default class Login extends React.Component {
         window.location = constant.BASE_URL;
       })
       .catch(function (error) {
-        alert(error);
+        self.showAlert(translate('app.error.login_error'));
       });
   }
 
@@ -47,13 +57,14 @@ export default class Login extends React.Component {
   }
 
   signUpClick() {
-    this.preventDefault;
+    this.preventDefault();
     window.location = constant.SIGN_UP_URL
   }
 
   render() {
     return (
       <section className='body-custom'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         <div className='login-card'>
           <div className='pmd-card card-default pmd-z-depth'>
             <div className='login-card'>

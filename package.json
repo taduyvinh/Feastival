@@ -25,6 +25,7 @@
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
     "react-addons-update": "^15.6.0",
+    "react-alert": "^2.2.0",
     "react-bootstrap": "^0.31.0",
     "react-chat-bubble": "^0.8.6",
     "react-display-name": "^0.2.0",
@@ -48,7 +49,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack"
+    "start": "webpack -w"
   },
   "repository": {
     "type": "git",

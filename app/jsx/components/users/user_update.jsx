@@ -2,6 +2,7 @@ let translate = require('counterpart');
 import update from 'react-addons-update';
 import * as constant from  '../../constant'
 import axios from 'axios';
+import AlertContainer from 'react-alert';
 
 export default class UserUpdate extends React.Component {
   constructor(props) {
@@ -27,6 +28,14 @@ export default class UserUpdate extends React.Component {
     }
   }
 
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
+  }
+
   getUserInfoById(id) {
     axios.get(constant.API_USER_UPDATE_URL + id, constant.headers)
       .then(response => {
@@ -37,7 +46,7 @@ export default class UserUpdate extends React.Component {
         })
       })
       .catch(error => {
-        alert(error);
+        this.showAlert(translate('app.error.error'));
       });
   }
 
@@ -53,10 +62,10 @@ export default class UserUpdate extends React.Component {
       JSON.parse(localStorage.feastival_user).user_id,
       formData, constant.headers)
       .then(response => {
-        window.location.reload();
+        this.showAlert(translate('app.error.success'));
       })
-      .catch(errot => {
-        alert(error);
+      .catch(error => {
+        this.showAlert(translate('app.error.error_validate'));
       });
   }
 
@@ -99,6 +108,7 @@ export default class UserUpdate extends React.Component {
   render() {
     return (
       <section className='user-info'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         <div className='row wrapper-user-info'>
           <div className='pmd-card pmd-z-depth-1 col-md-offset-3 col-md-6 user-info-body'>
             <div className='fileinput fileinput-new col-md-2 col-md-offset-1 avatar'>
