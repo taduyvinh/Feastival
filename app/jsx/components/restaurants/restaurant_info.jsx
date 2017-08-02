@@ -1,9 +1,8 @@
 let translate = require('counterpart');
 
 import * as constant from  '../../constant';
-
-import update from 'react-addons-update';
 import axios from 'axios';
+import AlertContainer from 'react-alert';
 
 export default class RestaurantInfo extends React.Component {
   constructor(props) {
@@ -16,6 +15,14 @@ export default class RestaurantInfo extends React.Component {
       'description': '',
       'website': ''
     }
+  }
+
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
   }
 
   getRestaurantInfoById(id) {
@@ -32,7 +39,7 @@ export default class RestaurantInfo extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        this.showAlert(translate('app.error.error'));
       });
   }
 
@@ -50,7 +57,7 @@ export default class RestaurantInfo extends React.Component {
         window.location.reload();
       })
       .catch(error => {
-        alert(error);
+        this.showAlert(translate('app.error.error_validate'));
       });
   }
 
@@ -78,6 +85,7 @@ export default class RestaurantInfo extends React.Component {
   render() {
     return (
       <div className='container'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         <div className='restaurant-info'>
           <div className='row'>
             <div className='col-md-5 restaurant-ava'>

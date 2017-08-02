@@ -1,6 +1,7 @@
 let translate = require('counterpart');
 import * as constant from  '../../constant'
 import axios from 'axios';
+import AlertContainer from 'react-alert';
 
 export default class UserInfo extends React.Component {
   constructor(props) {
@@ -21,6 +22,14 @@ export default class UserInfo extends React.Component {
     }
   }
 
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
+  }
+
   getUserInfoById(id) {
     axios.get(constant.API_USER_INFO_URL + id, constant.headers)
       .then(response =>  {
@@ -31,7 +40,7 @@ export default class UserInfo extends React.Component {
         })
       })
       .catch(error => {
-        alert(error);
+        this.showAlert(translate('app.error.error'));
       });
   }
 
@@ -51,6 +60,7 @@ export default class UserInfo extends React.Component {
   render() {
     return (
       <section className='user-info'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         <div className='row wrapper-user-info'>
           <div className='pmd-card pmd-z-depth-1 col-md-offset-3 col-md-6 user-info-body'>
             <div className='fileinput fileinput-new col-md-2 col-md-offset-1 avatar'>

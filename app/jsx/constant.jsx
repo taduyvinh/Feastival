@@ -19,5 +19,13 @@ if (localStorage.feastival_user != null) {
   }
 }
 
-export const headers = header
-export const DEFAULT_AVATAR = 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg'
+export const headers = header;
+export const DEFAULT_AVATAR = 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg';
+let alertOptions = {
+  offset: 14,
+  position: 'bottom left',
+  theme: 'dark',
+  time: 5000,
+  transition: 'scale'
+}
+export const ALERT_OPTIONS = alertOptions;

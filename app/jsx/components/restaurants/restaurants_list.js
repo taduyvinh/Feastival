@@ -3,6 +3,7 @@ let translate = require('counterpart');
 import axios from 'axios';
 import * as constant from  '../../constant';
 import Restaurant from './restaurant';
+import AlertContainer from 'react-alert';
 
 export default class RestaurantsList extends React.Component {
   constructor(props) {
@@ -12,19 +13,29 @@ export default class RestaurantsList extends React.Component {
     };
   }
 
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
+  }
+
   componentWillMount() {
+    let self = this;
     axios.get(constant.API_RESTAURANTS_URL, constant.headers)
       .then(response => {
         this.setState({restaurants: response.data.restaurants});
       })
       .catch(function(error) {
-        alert(error);
+        self.showAlert(translate('app.error.error'));
       });
   }
 
   render() {
     return (
       <div className='restaurants'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         {
           this.state.restaurants.map(restaurant => {
             return <Restaurant restaurant={restaurant} key={restaurant.id} />;

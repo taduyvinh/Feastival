@@ -1,5 +1,12 @@
 module.exports = {
   app: {
+    error: {
+      login_error: 'Password or Email Wrong',
+      error: 'Error from server',
+      error_validate: 'Not be blank',
+      error_signup: 'Account exist or wrong repeat password',
+      success: 'Update Success'
+    },
     login: {
       login_view: 'Login',
       sign_up: 'Sign Up',
