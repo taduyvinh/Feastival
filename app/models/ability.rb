@@ -3,7 +3,7 @@ class Ability
 
   def initialize user
     user ||= User.new
-    can :read, [Group, User, Restaurant]
+    can :read, [Group, Restaurant]
 
     return if user.new_record?
     id = user.id

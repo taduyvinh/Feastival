@@ -1,14 +1,20 @@
 module Api
   class RestaurantsController < BaseController
     attr_reader :restaurant
-
+    skip_before_action :authenticate_user_from_token
     before_action :find_object, only: [:show, :update]
     before_action :correct_user, only: [:update]
 
     def index
       render json: {
-        restaurants: Restaurant.all
+        restaurants: Restaurant.displayed(params[:lat],
+          params[:lng], params[:distance])
       }, status: :ok
+    end
+
+    def new
+      @categories = Category.all
+      response_new_data
     end
 
     def create
@@ -29,6 +35,14 @@ module Api
     end
 
     private
+
+    attr_reader :categories
+
+    def response_new_data
+      render json: {
+        categories: categories
+      }, status: :ok
+    end
 
     def correct_user
       return if restaurant.manager_id.eql? current_user.id
@@ -53,9 +67,18 @@ module Api
     def response_show_succcess
       render json: {
         message: I18n.t("api.restaurants.show_success"),
-        restaurant_info: {
-          restaurant: restaurant
-        }
+        restaurant: restaurant.as_json(include:
+        {
+          groups: {
+            include: {
+              creator: {
+                include: {
+                  profile: {only: :avatar}
+                }, only: []
+              }
+            }, only: [:title, :id]
+          }
+        })
       }, status: :ok
     end
 

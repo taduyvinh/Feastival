@@ -5,8 +5,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.integer :manager_id
       t.string :title
       t.text :address
-      t.float :latitude
-      t.float :longitude
+      t.float :latitude, limit: 30
+      t.float :longitude, limit: 30
       t.text :description
       t.string :phonenumber
       t.string :website

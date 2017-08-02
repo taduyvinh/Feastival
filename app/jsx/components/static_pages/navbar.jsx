@@ -68,6 +68,18 @@ export default class Navbar extends React.Component {
     window.location = constant.BASE_URL;
   }
 
+  restaurantClick() {
+    window.location = constant.RESTAURANTS_URL
+  }
+
+  newGroupClick() {
+    window.location = constant.NEW_GROUP_URL
+  }
+
+  groupClick() {
+    window.location = constant.GROUPS_URL
+  }
+
   signUpClick() {
     window.location = constant.SIGN_UP_URL;
   }
@@ -98,8 +110,25 @@ export default class Navbar extends React.Component {
                   <span className='sr-only'>(current)</span>
                 </a>
               </li>
-              <li><a>{translate('app.static-pages.about')}</a></li>
-              <li><a>{translate('app.static-pages.menu')}</a></li>
+
+              <li className='active' onClick={this.restaurantClick.bind(this)}>
+                <a>{translate('app.static-pages.restaurants')}
+                  <span className='sr-only'>(current)</span>
+                </a>
+              </li>
+
+              <li className='active' onClick={this.groupClick.bind(this)}>
+                <a>{translate('app.static-pages.groups')}
+                  <span className='sr-only'>(current)</span>
+                </a>
+              </li>
+
+              <li className='active' onClick={this.newGroupClick.bind(this)}>
+                <a>{translate('app.static-pages.new_group')}
+                  <span className='sr-only'>(current)</span>
+                </a>
+              </li>
+
             </ul>
             <ul className='nav navbar-nav navbar-right'>
               <li className='dropdown'>
@@ -121,10 +150,10 @@ export default class Navbar extends React.Component {
                 </ul>
               </li>
               {!this.state.is_signed ?
-                ([<li onClick={this.signUpClick.bind(this)}>
+                ([<li key='0' onClick={this.signUpClick.bind(this)}>
                     <a>{translate('app.login.sign_up')}</a>
                   </li>,
-                  <li onClick={this.signInClick.bind(this)}>
+                  <li key='1' onClick={this.signInClick.bind(this)}>
                     <a>{translate('app.login.sign_in')}</a>
                   </li>]) :
                 (<li className='dropdown'>
