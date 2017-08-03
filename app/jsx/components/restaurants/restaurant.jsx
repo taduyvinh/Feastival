@@ -12,7 +12,9 @@ export default class Restaurant extends React.Component {
           <div className='address'>
             {this.props.restaurant.address}
           </div>
-          <button onClick={this.props.onButtonClick}>
+          <button
+            onClick={this.props.onButtonClick}
+            className='btn btn-primary'>
             {translate('app.restaurant_info.info')}
           </button>
         </div>

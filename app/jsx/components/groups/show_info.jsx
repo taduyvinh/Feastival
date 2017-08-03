@@ -3,6 +3,7 @@ import {withGoogleMap, GoogleMap, Marker, InfoWindow}
   from 'react-google-maps/lib';
 import MapForShow from './map_only_show';
 import * as constant from '../../constant';
+import AlertContainer from 'react-alert';
 import axios from 'axios';
 
 let translate = require('counterpart');
@@ -29,6 +30,14 @@ export default class GroupShowInfo extends React.Component {
       creator: null,
       users: [],
     };
+  }
+
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
   }
 
   componentWillMount() {
@@ -174,7 +183,6 @@ export default class GroupShowInfo extends React.Component {
                   <p>{this.state.group.title}</p>
                   <p>{this.state.group.address}</p>
                   <p>{this.state.group.time}</p>
-
                   <p>{this.state.group.description}</p>
                 </div>
                 <MapForShow/>

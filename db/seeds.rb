@@ -107,6 +107,20 @@ Restaurant.where(id: 1..10).each do |restaurant|
   )
 end
 
+10.times do
+  Group.create(
+    category_id: rand(1..5),
+    creator_id: rand(1..10),
+    title: Faker::Lorem.sentence,
+    address: Faker::Address.street_address,
+    latitude: rand(20.990127..21.0312335),
+    longitude: rand(105.795982..105.856032),
+    time: rand(5.days.from_now..10.days.from_now),
+    size: rand(2..10),
+    description: Faker::Lorem.paragraph
+  )
+end
+
 User.where(id: 11..50).each do |user|
   user.group_users.create group_id: rand(1..10)
 end

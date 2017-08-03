@@ -184,6 +184,16 @@ export default class GroupIndex extends React.Component {
 
         if (targetMarker.type == constant.marker_types.user) {
           name = translate('app.map.my_location');
+        } else if (targetMarker.type == constant.marker_types.group) {
+          Object.assign(new_state, {
+            info_show: true,
+            name: targetMarker.infocontent
+          })
+          axios.get(constant.API_GROUPS_URL + targetMarker-id)
+            .then(response => {
+              this.setState({group: response.data.group})
+            })
+            .catch(error => alert(error));
         } else {
           name = targetMarker.infoContent;
         }

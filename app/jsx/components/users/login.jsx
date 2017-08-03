@@ -42,7 +42,7 @@ export default class Login extends React.Component {
         window.location = constant.BASE_URL;
       })
       .catch(function (error) {
-        self.showAlert(translate('app.error.login_error'));
+        self.showAlert(translate('app.error.error'));
       });
   }
 

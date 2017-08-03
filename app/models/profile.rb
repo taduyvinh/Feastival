@@ -1,4 +1,5 @@
 class Profile < ApplicationRecord
+  enum gender: [:male, :female, :undefined]
   belongs_to :user
 
   has_many :reports, as: :reported, dependent: :destroy
