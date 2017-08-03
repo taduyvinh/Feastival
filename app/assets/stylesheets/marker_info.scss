@@ -2,10 +2,6 @@ $blue: #6495ed;
 $gray-darker: #969623;
 $white: #fff;
 
-* {
-  cursor: pointer;
-}
-
 .search-input {
   background-color: $blue;
   padding: 10px;
@@ -49,19 +45,19 @@ $white: #fff;
 .max-lines {
   display: inline-block;
   line-height: 1.8em;
+  margin: 0 auto;
   max-height: 3.6em;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
-  margin: 0 auto;
 }
 
 .list-groups {
   max-height: 300px;
   min-height: 300px;
-  overflow: scroll;
   overflow-x: hidden;
+  overflow-y: auto;
   width: 400px;
 }
 

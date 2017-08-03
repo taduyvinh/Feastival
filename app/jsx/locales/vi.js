@@ -118,13 +118,16 @@ module.exports = {
         title: 'Tên nhóm',
         time: 'Thời gian',
         description: 'Mô tả',
-        address: 'Địa chỉ'
+        address: 'Địa chỉ',
+        size: 'Số lượng người tham gia'
       },
       view: {
         creator: 'Người tạo',
         members: 'Thành viên',
         join: 'Tham gia',
-        leave: 'Rời nhóm'
+        leave: 'Rời nhóm',
+        chat: 'Chat',
+        cancel: 'Cancel Request'
       }
     },
     restaurant_info: {
@@ -134,7 +137,8 @@ module.exports = {
       phonenumber: 'Số điện thoại',
       website: 'Trang web',
       description: 'Mô tả',
-      update: 'Cập nhật'
+      update: 'Cập nhật',
+      info: 'Thông tin'
     }
   }
 };

@@ -7,5 +7,4 @@ class Profile < ApplicationRecord
   validates :phonenumber, presence: true
   validates :job, presence: true
   validates :description, presence: true
-
 end

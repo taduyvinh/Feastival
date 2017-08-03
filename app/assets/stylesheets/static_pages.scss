@@ -28,12 +28,12 @@ $blue: #6495ed;
 body {
   background-color: $white;
   font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  min-height: 100vh;
 }
 
-.root{
+.root {
   min-height: calc(100vh - 53px - 193px);
 }
 

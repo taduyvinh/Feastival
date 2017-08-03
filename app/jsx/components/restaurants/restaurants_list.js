@@ -22,14 +22,17 @@ export default class RestaurantsList extends React.Component {
   }
 
   componentWillMount() {
-    let self = this;
     axios.get(constant.API_RESTAURANTS_URL, constant.headers)
       .then(response => {
         this.setState({restaurants: response.data.restaurants});
       })
-      .catch(function(error) {
-        self.showAlert(translate('app.error.error'));
+      .catch(error => {
+        this.showAlert(translate('app.error.error'));
       });
+  }
+
+  handleRestaurantClick(restaurant_id) {
+    window.location = constant.RESTAURANTS_URL + restaurant_id
   }
 
   render() {
@@ -38,7 +41,13 @@ export default class RestaurantsList extends React.Component {
         <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         {
           this.state.restaurants.map(restaurant => {
-            return <Restaurant restaurant={restaurant} key={restaurant.id} />;
+            return (
+              <Restaurant
+                restaurant={restaurant}
+                key={restaurant.id}
+                onButtonClick={this.handleRestaurantClick.bind(restaurant.id)}
+              />
+            );
           })
         }
       </div>

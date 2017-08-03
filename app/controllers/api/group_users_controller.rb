@@ -34,7 +34,7 @@ module Api
     def response_index
       render json: {
         message: I18n.t("api.group_user.index"),
-        group_users: group_users
+        group_users: group.group_users.as_json(include: {user: {include: :profile}})
       }, status: :ok
     end
 
@@ -46,7 +46,8 @@ module Api
 
     def response_create_success
       render json: {
-        message: I18n.t("api.group_user.create_success")
+        message: I18n.t("api.group_user.create_success"),
+        group_user: group_user
       }, status: :ok
     end
 
@@ -63,6 +64,7 @@ module Api
       }, status: :ok
     end
 
+    def response_update_fail
       render json: {
         message: I18n.t("api.group_user.update_fail")
       }, status: :unprocessable_entity
@@ -78,8 +80,7 @@ module Api
 
     def find_group
       @group = Group.find_by id: params[:group_id]
-
-      return if @group
+      return if group
       render json: {
         message: I18n.t("api.group_user.group_not_found")
       }, status: :not_found

@@ -120,7 +120,9 @@ module.exports = {
         creator: '作った人',
         members: '会員',
         join: '参加',
-        leave: '出る'
+        leave: '出る',
+        chat: 'キャンセル',
+        cancel: 'Cancel Request'
       }
     },
     restaurant_info: {
@@ -130,7 +132,8 @@ module.exports = {
       phonenumber: '電話番号',
       website: 'サイト',
       description: 'レストランの説明',
-      update: 'アップデ-ト'
+      update: 'アップデ-ト',
+      info: '情報'
     }
   }
 };
