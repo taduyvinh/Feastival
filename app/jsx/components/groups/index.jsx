@@ -91,7 +91,11 @@ export default class GroupIndex extends React.Component {
   getCurrentLocation() {
     let self = this;
     navigator.geolocation.getCurrentPosition(function(location) {
-      self.loadRecentMarker(location);
+      let my_location = {
+        lat: location.coords.latitude,
+        lng: location.coords.longitude
+      }
+      self.loadRecentMarker(my_location);
     });
   }
 
@@ -99,24 +103,24 @@ export default class GroupIndex extends React.Component {
     let restaurantMarkers =[];
     let groupMarkers =[];
     let mapCenter = {
-      lat: 21.008783,
-      lng: 105.851630
+      lat: location.lat,
+      lng: location.lng
     }
     let myMarker = {
       infoContent: translate('app.map.my_location'),
       id: 'myMarker',
       draggable: true,
       position: {
-        lat: 21.008783,
-        lng: 105.851630
+        lat: location.lat,
+        lng: location.lng
       },
       type: constant.marker_types.user
     }
     axios.get(constant.API_GROUPS_URL,
       {
         params: {
-          lat: 21.008783,
-          lng: 105.851630,
+          lat: location.lat,
+          lng: location.lng,
           distance: this.state.distance
         }
       }, constant.headers)
@@ -158,7 +162,7 @@ export default class GroupIndex extends React.Component {
   }
 
   componentWillMount() {
-    this.loadRecentMarker();
+    this.getCurrentLocation();
   }
 
   handleMapClick(event) {
