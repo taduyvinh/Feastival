@@ -117,14 +117,17 @@ module.exports = {
         title: 'Title',
         time: 'Time',
         description: 'Description',
-        address: 'Address'
+        address: 'Address',
+        size: 'Number of people'
       },
       view: {
         creator: 'Creator',
         members: 'Members',
         join: 'Join',
-        leave: 'Leave'
-      }
+        leave: 'Leave',
+        chat: 'Chat',
+        cancel: 'Cancel Request'
+      },
     },
     restaurant_info: {
       update_title: 'Update restaurant info',
@@ -133,7 +136,8 @@ module.exports = {
       phonenumber: 'Restaurant phonenumber',
       website: 'Restaurant website',
       description: 'Restaurant description',
-      update: 'Update'
+      update: 'Update',
+      info: 'Information'
     }
   }
 };

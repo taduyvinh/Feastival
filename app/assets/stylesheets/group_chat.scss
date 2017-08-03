@@ -9,8 +9,8 @@
 }
 
 .chat-body {
-  max-height: calc(100vh + 30px - 303px);
-  height: calc(100vh + 30px - 303px);
-  overflow-y: scroll;
+  height: - 273px;
+  max-height: - 273px;
   overflow-x: hidden;
+  overflow-y: auto;
 }

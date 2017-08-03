@@ -44,7 +44,6 @@ export default class MarkerInfo extends React.Component {
     let input = document.getElementById('autocomplete');
     let autocomplete = new google.maps.places.Autocomplete(input, {types: ['address']});
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
-
     })
   }
 
@@ -60,6 +59,9 @@ export default class MarkerInfo extends React.Component {
     this.setState({isShowingModal: false});
   }
 
+  handleGroupClick(group_id) {
+    window.location = `${constant.GROUPS_URL + group_id}/info`;
+  }
   render() {
     return (
       <section>
@@ -101,8 +103,7 @@ export default class MarkerInfo extends React.Component {
         return (
           <div className='col-md-3 pmd-card pmd-z-depth-1 group-card'
             key={index}
-            onClick=handleGroupClick
-            >
+            onClick={() => this.handleGroupClick(group.id)}>
             <img src={group.creator.profile.avatar}
               className='image'/>
             <OverlayTrigger

@@ -15,7 +15,7 @@ export default class GroupShowInfo extends React.Component {
     this.state = {
       group: {},
       bounds: null,
-      group_user: [],
+      group_user: {},
       center: {
         lat: 21.006166,
         lng: 105.830996,
@@ -32,14 +32,20 @@ export default class GroupShowInfo extends React.Component {
   }
 
   componentWillMount() {
-    axios.get(constant.API_GROUPS_URL + this.props.params.group_id,
+    axios.get(constant.API_GROUPS_URL + '/' + this.props.params.group_id,
       constant.headers)
       .then(response => {
+        let position = {
+          lat: response.data.group.latitude,
+          lng: response.data.group.longitude
+        }
         this.setState({
           group: response.data.group,
           group_user: response.data.group_user,
           users: response.data.users,
-          creator: response.data.creator
+          creator: response.data.creator,
+          center: position,
+          markers: [{position: position}]
         })
       })
       .catch(error => {
@@ -54,7 +60,16 @@ export default class GroupShowInfo extends React.Component {
           <div className='join-btn text-center pmd-card pmd-z-depth-1'>
             <button onClick={this.handleCancelClick.bind(this)}
               className='btn btn-warning'>
-              Cancel Request
+              {translate('app.groups.view.cancel')}
+            </button>
+          </div>
+        );
+      } else {
+        return (
+          <div className='join-btn text-center pmd-card pmd-z-depth-1'>
+            <button onClick={this.handleChatClick.bind(this)}
+              className='btn btn-primary'>
+              {translate('app.groups.view.chat')}
             </button>
           </div>
         );
@@ -65,17 +80,21 @@ export default class GroupShowInfo extends React.Component {
       <div className='join-btn text-center pmd-card pmd-z-depth-1'>
         <button onClick={this.handleJoinClick.bind(this)}
           className='btn btn-primary'>
-          Join
+          {translate('app.groups.view.join')}
         </button>
       </div>
     );
+  }
+
+  handleChatClick() {
+    window.location = constant.GROUPS_URL + this.state.group.id
   }
 
   handleJoinClick() {
     let formData = new FormData();
     formData.append('group_user[user_id]', JSON.parse(localStorage.feastival_user).user_id)
     formData.append('group_user[group_id]', this.state.group.id)
-    axios.post(constant.API_GROUPS_URL + this.props.params.group_id +
+    axios.post(constant.API_GROUPS_URL + '/' + this.props.params.group_id +
       constant.API_JOIN_URL, formData, constant.headers)
       .then(response => {
         this.setState({
@@ -88,7 +107,7 @@ export default class GroupShowInfo extends React.Component {
   }
 
   handleCancelClick() {
-    axios.delete(constant.API_GROUPS_URL + this.props.params.group_id +
+    axios.delete(constant.API_GROUPS_URL + '/' +  this.props.params.group_id +
       constant.API_JOIN_URL + this.state.group_user.id, constant.headers)
       .then(() => {
         this.setState({

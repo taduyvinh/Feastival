@@ -28,14 +28,14 @@ export default class RestaurantInfo extends React.Component {
   getRestaurantInfoById(id) {
     axios.get(constant.API_RESTAURANTS_URL + id, constant.headers)
       .then(response => {
-        this.checkNullInfo(response.data.restaurant_info.restaurant);
+        this.checkNullInfo(response.data.restaurant);
         this.setState({
           id: this.props.id,
-          title: response.data.restaurant_info.restaurant.title,
-          address: response.data.restaurant_info.restaurant.address,
-          phonenumber: response.data.restaurant_info.restaurant.phonenumber,
-          description: response.data.restaurant_info.restaurant.description,
-          website: response.data.restaurant_info.restaurant.website
+          title: response.data.restaurant.title,
+          address: response.data.restaurant.address,
+          phonenumber: response.data.restaurant.phonenumber,
+          description: response.data.restaurant.description,
+          website: response.data.restaurant.website
         });
       })
       .catch(error => {
