@@ -32,7 +32,7 @@ export default class RestaurantsList extends React.Component {
   }
 
   handleRestaurantClick(restaurant_id) {
-    window.location = constant.RESTAURANTS_URL + restaurant_id
+    window.location = constant.RESTAURANTS_URL + restaurant_id;
   }
 
   render() {
@@ -40,12 +40,12 @@ export default class RestaurantsList extends React.Component {
       <div className='restaurants'>
         <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         {
-          this.state.restaurants.map(restaurant => {
+          this.state.restaurants.map((restaurant, index) => {
             return (
               <Restaurant
                 restaurant={restaurant}
                 key={restaurant.id}
-                onButtonClick={this.handleRestaurantClick.bind(restaurant.id)}
+                onButtonClick={() => this.handleRestaurantClick(restaurant.id)}
               />
             );
           })

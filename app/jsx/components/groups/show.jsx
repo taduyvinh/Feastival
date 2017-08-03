@@ -57,6 +57,14 @@ export default class GroupShow extends React.Component {
     }
   }
 
+  showAlert(text) {
+    this.msg.show(text, {
+      time: 3000,
+      type: 'success',
+      icon: <img src='/assets/warning.png' />
+    });
+  }
+
   componentWillMount() {
     axios.get(constant.API_GROUPS_URL + '/' +
       this.props.params.group_id, constant.headers)
@@ -74,9 +82,10 @@ export default class GroupShow extends React.Component {
 
   handleLeaveGroup(){
     axios.delete(constant.API_GROUPS_URL + '/' + this.props.params.group_id +
-      constant.API_JOIN_URL + this.state.group_user.id )
+      constant.API_JOIN_URL + this.state.group_user.id, constant.headers )
       .then(response => {
-        window.location = constant.BASE_URL
+        this.showAlert(translate('app.error.success'));
+        window.location = constant.BASE_URL;
       })
       .catch(error => {
         this.showAlert(translate('app.error.error'))
@@ -86,6 +95,7 @@ export default class GroupShow extends React.Component {
   render() {
     return (
       <section className='group-chat'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         <div className='row'>
           <div className='col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8 pmd-card pmd-z-depth-1'>
             <div className='row'>

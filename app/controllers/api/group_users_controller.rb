@@ -1,7 +1,8 @@
 module Api
   class GroupUsersController < BaseController
     before_action :find_object, only: [:show, :update, :destroy]
-    before_action :find_group, only: :index
+    before_action :find_group, only: [:index, :update, :destroy]
+
     authorize_resource
 
     def index
@@ -34,13 +35,22 @@ module Api
     def response_index
       render json: {
         message: I18n.t("api.group_user.index"),
-        group_users: group.group_users.as_json(include: {user: {include: :profile}})
+        group_users: group.group_users.pending.as_json(include:
+          {
+            user: {include: :profile}
+          }
+        )
       }, status: :ok
     end
 
     def response_destroy
       render json: {
-        message: I18n.t("api.group_user.destroy")
+        message: I18n.t("api.group_user.destroy"),
+        group_users: group.group_users.pending.as_json(include:
+          {
+            user: {include: :profile}
+          }
+        )
       }, status: :ok
     end
 
@@ -60,7 +70,12 @@ module Api
     def response_update_success
       render json: {
         message: I18n.t("api.group_user.update_success"),
-        group_user: group_user
+        group_user: group_user,
+        group_users: group.group_users.pending.as_json(include:
+          {
+            user: {include: :profile}
+          }
+        )
       }, status: :ok
     end
 
@@ -84,6 +99,10 @@ module Api
       render json: {
         message: I18n.t("api.group_user.group_not_found")
       }, status: :not_found
+    end
+
+    def updated_group_users
+      @group_users = group.group_users.pending
     end
   end
 end

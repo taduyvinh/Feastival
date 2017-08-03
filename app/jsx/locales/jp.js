@@ -122,7 +122,10 @@ module.exports = {
         join: '参加',
         leave: '出る',
         chat: 'キャンセル',
-        cancel: 'Cancel Request'
+        cancel: 'Cancel Request',
+        accept: '受け入れる',
+        decline: '低下',
+        no_request: 'がありません'
       }
     },
     restaurant_info: {

@@ -127,7 +127,10 @@ module.exports = {
         join: 'Tham gia',
         leave: 'Rời nhóm',
         chat: 'Chat',
-        cancel: 'Cancel Request'
+        cancel: 'Hủy',
+        accept: 'Đồng ý',
+        decline: 'Chấp nhận',
+        no_request: 'Không có yêu cầu nào mới'
       }
     },
     restaurant_info: {

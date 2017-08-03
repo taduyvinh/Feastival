@@ -27,6 +27,8 @@ module.exports = {
         english: 'English',
         japanese: '日本語'
       },
+      'joined_groups': 'My groups',
+      'created_groups': 'Groups I\'m in',
       'home_page': 'Home Page',
       'app_name': 'Feastival',
       'home': 'Home',
@@ -126,7 +128,10 @@ module.exports = {
         join: 'Join',
         leave: 'Leave',
         chat: 'Chat',
-        cancel: 'Cancel Request'
+        cancel: 'Cancel Request',
+        accept: 'Accept',
+        decline: 'Decline',
+        no_request: 'No new request'
       },
     },
     restaurant_info: {
