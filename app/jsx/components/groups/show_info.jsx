@@ -58,7 +58,7 @@ export default class GroupShowInfo extends React.Component {
         })
       })
       .catch(error => {
-        alert(error)
+        this.showAlert(translate('app.error.error'));
       })
   }
 
@@ -109,9 +109,10 @@ export default class GroupShowInfo extends React.Component {
         this.setState({
           group_user: response.data.group_user
         })
+        this.showAlert(translate('app.error.request_success'));
       })
       .catch(error =>{
-        alert(error)
+        this.showAlert(translate('app.error.error'));
       });
   }
 
@@ -122,16 +123,21 @@ export default class GroupShowInfo extends React.Component {
         this.setState({
           group_user: null
         })
+        this.showAlert(translate('app.error.cancel_success'));
       })
       .catch(error => {
-        alert(error)
+        this.showAlert(translate('app.error.error'));
       });
+  }
+  showInfoUser(id){
+    window.location = constant.USER_INFO_URL + id;
   }
 
   renderCreator() {
     if (this.state.creator) {
       return (
-        <div className='pmd-card pmd-z-depth-1 text-center'>
+        <div className='pmd-card pmd-z-depth-1 text-center'
+          onClick={this.showInfoUser.bind(this,this.state.creator.id)}>
           <img src={this.state.creator.profile.avatar} className='image'/>
           <p className='max-lines'>{this.state.creator.profile.name}</p>
         </div>
@@ -143,6 +149,7 @@ export default class GroupShowInfo extends React.Component {
   render() {
     return (
       <section className='group-over-view'>
+        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
         <div className='row'>
           <div className='col-md-offset-2 col-md-8 pmd-card pmd-z-depth-1 group-body'>
             <div className='row'>
@@ -165,7 +172,8 @@ export default class GroupShowInfo extends React.Component {
                   <div className='col-sm-9'>
                     {this.state.users.map((user, index) => {
                       return (
-                        <div key={index} className='col-sm-4'>
+                        <div key={index} className='col-sm-4'
+                          onClick={this.showInfoUser.bind(this,this.state.users[index].id)}>
                           <div className='pmd-card pmd-z-depth-1 text-center'>
                             <img src={user.profile.avatar} className='image'/>
                             <p className='max-lines'>{user.profile.name}</p>

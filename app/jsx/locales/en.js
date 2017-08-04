@@ -5,7 +5,9 @@ module.exports = {
       error: 'Error from server',
       error_validate: 'Not be blank',
       error_signup: 'Account exist or wrong repeat password',
-      success: 'Update Success'
+      success: 'Update Success',
+      request_success: 'Send request success',
+      cancel_success: 'Cancel request success',
     },
     login: {
       login_view: 'Login',
