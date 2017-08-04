@@ -35,6 +35,7 @@ module Api
     def response_index
       render json: {
         message: I18n.t("api.group_user.index"),
+        creator: group.creator,
         group_users: group.group_users.pending.as_json(include:
           {
             user: {include: :profile}

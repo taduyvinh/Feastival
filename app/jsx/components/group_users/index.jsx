@@ -10,6 +10,7 @@ export default class GroupUserIndex extends React.Component {
     super(props);
     this.state = {
       group_users: [],
+      creator: {}
     };
   }
 
@@ -17,7 +18,11 @@ export default class GroupUserIndex extends React.Component {
     axios.get(constant.API_GROUPS_URL + '/' + this.props.params.group_id +
       constant.API_JOIN_URL ,constant.headers)
       .then(response => {
-        this.setState({group_users: response.data.group_users});
+        if (JSON.parse(localStorage.feastival_user).user_id !=
+          response.data.creator.id)
+          window.location = constant.BASE_URL;
+        else
+          this.setState({group_users: response.data.group_users});
       })
       .catch(error => {
         this.showAlert(translate('app.error.error'));
@@ -31,7 +36,9 @@ export default class GroupUserIndex extends React.Component {
     axios.put(constant.API_GROUPS_URL + '/' + this.props.params.group_id +
       constant.API_JOIN_URL + group_user_id, formData, constant.headers)
       .then(response => {
-        this.setState({group_users: response.data.group_users})
+        this.setState({
+          group_users: response.data.group_users,
+        })
       })
       .catch(error => {
         this.showAlert(translate('app.error.error'));

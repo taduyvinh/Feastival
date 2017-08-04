@@ -45,7 +45,11 @@ module Api
     def response_create_data
       render json: {
         messages: I18n.t("devise.sessions.signed_in"),
-        user_session: {id: user.id, email: user.email, user_token: user.authentication_token}
+        user_session: {
+         id: user.id, email: user.email,
+         user_token: user.authentication_token,
+         avatar: user.profile.avatar
+        }
       }, status: :ok
     end
 

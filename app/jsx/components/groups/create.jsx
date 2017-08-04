@@ -1,5 +1,4 @@
 let translate = require('counterpart');
-import Map from 'google-maps-react';
 import axios from 'axios';
 import MapGroupCreate from './map';
 import * as constant from '../../constant';
@@ -14,6 +13,12 @@ export default class GroupCreate extends React.Component {
     };
   }
 
+  componentWillMount() {
+    if (localStorage.feastival_user == null) {
+      window.location = constant.SIGN_IN_URL;
+    }
+  }
+
   componentDidMount() {
     axios.get(constant.API_NEW_GROUP_URL, constant.headers)
       .then(response => {
@@ -26,7 +31,7 @@ export default class GroupCreate extends React.Component {
       .catch(error => {
         this.showAlert(translate('app.error.error'));
       });
-    }
+  }
 
   handleLatLngChange(latitude, longitude) {
     this.setState({
@@ -66,149 +71,159 @@ export default class GroupCreate extends React.Component {
       });
   }
 
-  render() {
-    return (
-      <div className  ='container'>
-        <div className='page-header'></div>
+  renderView() {
+    if (localStorage.feastival_user != null)
+      return (
         <div className='container'>
-          <div id="pmd-slider" className="pmd-range-slider"></div>
+          <div className='page-header'></div>
+          <div className='container'>
+            <div id='pmd-slider' className='pmd-range-slider'></div>
 
-          <div className='row'>
+            <div className='row'>
 
-            <div className='col-md-6'>
-              <div className='well well-sm'>
-                <div className='form-horizontal'>
-                  <fieldset>
+              <div className='col-md-6'>
+                <div className='well well-sm'>
+                  <div className='form-horizontal'>
+                    <fieldset>
 
-                     <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <label>{translate('app.groups.create.title')}</label>
-                        <input type='text' className='form-control'
-                          value={this.state.title}
-                          name='title'
-                          onChange={this.handleInputChange.bind(this)}
-                          placeholder={translate('app.groups.create.title')}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <label>{translate('app.groups.create.title')}</label>
+                          <input type='text' className='form-control'
+                            value={this.state.title}
+                            name='title'
+                            onChange={this.handleInputChange.bind(this)}
+                            placeholder={translate('app.groups.create.title')}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <label>{translate('app.groups.create.category')}</label>
-                        <select className='form-control'
-                          name='category_id'
-                          value={this.state.category_id}
-                          onChange={this.handleInputChange.bind(this)}>
-                          {this.state.categories.map(category => (
-                            <option key={category.id} value={category.id}>
-                              {category.name}
-                            </option>
-                          ))}
-                        </select>
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <label>{translate('app.groups.create.category')}</label>
+                          <select className='form-control'
+                            name='category_id'
+                            value={this.state.category_id}
+                            onChange={this.handleInputChange.bind(this)}>
+                            {this.state.categories.map(category => (
+                              <option key={category.id} value={category.id}>
+                                {category.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
                       </div>
-                    </div>
 
-                     <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <label>{translate('app.groups.create.address')}</label>
-                        <input type='text' className='form-control'
-                          value={this.state.address}
-                          name='address'
-                          onChange={this.handleInputChange.bind(this)}
-                          placeholder={translate('app.groups.create.address')}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <label>{translate('app.groups.create.address')}</label>
+                          <input type='text' className='form-control'
+                            value={this.state.address}
+                            name='address'
+                            onChange={this.handleInputChange.bind(this)}
+                            placeholder={translate('app.groups.create.address')}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <label>{translate('app.groups.create.time')}</label>
-                        <input type='datetime-local' className='form-control'
-                          value={this.state.time}
-                          name='time'
-                          onChange={this.handleInputChange.bind(this)}
-                          placeholder={translate('app.groups.create.time')}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <label>{translate('app.groups.create.time')}</label>
+                          <input type='datetime-local' className='form-control'
+                            value={this.state.time}
+                            name='time'
+                            onChange={this.handleInputChange.bind(this)}
+                            placeholder={translate('app.groups.create.time')}
+                          />
+                        </div>
                       </div>
-                    </div>
 
 
-
-                    <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <label>
-                          {translate('app.groups.create.description')}
-                        </label>
-                        <input type='text' className='form-control'
-                          value={this.state.description}
-                          name='description'
-                          onChange={this.handleInputChange.bind(this)}
-                          placeholder={translate('app.groups.create.description')}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <label>
+                            {translate('app.groups.create.description')}
+                          </label>
+                          <input type='text' className='form-control'
+                            value={this.state.description}
+                            name='description'
+                            onChange={this.handleInputChange.bind(this)}
+                            placeholder={translate('app.groups.create.description')}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <label>{translate('app.groups.create.size')}</label>
-                        <input type='number' className='form-control'
-                          value={this.state.size}
-                          name='size'
-                          onChange={this.handleInputChange.bind(this)}
-                          placeholder={translate('app.groups.create.size')}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <label>{translate('app.groups.create.size')}</label>
+                          <input type='number' className='form-control'
+                            value={this.state.size}
+                            name='size'
+                            onChange={this.handleInputChange.bind(this)}
+                            placeholder={translate('app.groups.create.size')}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <input type='hidden' className='form-control'
-                          value={this.state.latitude}
-                          name='latitude'
-                          onChange={this.handleInputChange.bind(this)}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <input type='hidden' className='form-control'
+                            value={this.state.latitude}
+                            name='latitude'
+                            onChange={this.handleInputChange.bind(this)}
+                          />
+                        </div>
                       </div>
-                    </div>
 
 
-                    <div className='form-group'>
-                      <div className='col-md-10 col-md-offset-1'>
-                        <input type='hidden' className='form-control'
-                          value={this.state.longitude}
-                          name='longitude'
-                          onChange={this.handleInputChange.bind(this)}
-                         />
+                      <div className='form-group'>
+                        <div className='col-md-10 col-md-offset-1'>
+                          <input type='hidden' className='form-control'
+                            value={this.state.longitude}
+                            name='longitude'
+                            onChange={this.handleInputChange.bind(this)}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className='form-group'>
-                      <div className='col-md-12 text-center'>
-                        <button type='submit' className='btn btn-primary btn-lg'
-                          onClick={this.handleSubmit.bind(this)}>
-                          {translate("app.groups.create.submit")}
-                        </button>
+                      <div className='form-group'>
+                        <div className='col-md-12 text-center'>
+                          <button type='submit' className='btn btn-primary btn-lg'
+                            onClick={this.handleSubmit.bind(this)}>
+                            {translate('app.groups.create.submit')}
+                          </button>
+                        </div>
                       </div>
-                    </div>
 
-                  </fieldset>
-                </div>
-              </div>
-            </div>
-
-            <div className='col-md-6'>
-              <div>
-                <div className='panel panel-default'>
-                  <div className='text-center header'></div>
-                  <div className='panel-body text-center'>
-                    <MapGroupCreate LatLng={this.handleLatLngChange.bind(this)}
-                      restaurants = {this.state.restaurants} />
+                    </fieldset>
                   </div>
                 </div>
               </div>
-            </div>
 
+              <div className='col-md-6'>
+                <div>
+                  <div className='panel panel-default'>
+                    <div className='text-center header'></div>
+                    <div className='panel-body text-center'>
+                      <MapGroupCreate
+                        LatLng={this.handleLatLngChange.bind(this)}
+                        restaurants={this.state.restaurants}/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
+      );
+    return null;
+  }
+
+  render() {
+    return (
+      <div>
+        {this.renderView()}
       </div>
     );
   }

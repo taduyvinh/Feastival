@@ -162,6 +162,10 @@ export default class GroupIndex extends React.Component {
   }
 
   componentWillMount() {
+    if (localStorage.feastival_user == null) {
+      window.location = constant.SIGN_IN_URL;
+    }
+
     this.getCurrentLocation();
   }
 
@@ -347,46 +351,49 @@ export default class GroupIndex extends React.Component {
     );
 
     return (
-      <section className='map-body row'>
-        <div className={map_style}>
-          <div className={info_show_style}>
-            <MarkerInfo name={this.state.name}
-              restaurant={this.state.restaurant} />
-          </div>
-          <div className='input-distance'>
-            <input
-              className='range-slider__range'
-              id='distance'
-              type='range'
-              min='100' max='20000'
-              defaultValue={this.state.distance}
-              onMouseUp={this.handleDistanceChange.bind(this)}
-              step='1'
-            />
-              <span>{this.state.distance}</span>
-          </div>
+      <div>
+        {localStorage.feastival_user != null ?
+          <section className='map-body row'>
+            <div className={map_style}>
+              <div className={info_show_style}>
+                <MarkerInfo name={this.state.name}
+                  restaurant={this.state.restaurant} />
+              </div>
+              <div className='input-distance'>
+                <input
+                  className='range-slider__range'
+                  id='distance'
+                  type='range'
+                  min='100' max='20000'
+                  defaultValue={this.state.distance}
+                  onMouseUp={this.handleDistanceChange.bind(this)}
+                  step='1'
+                />
+                  <span>{this.state.distance}</span>
+              </div>
 
-          <BaseGoogleMap
-            containerElement={
-              <div className='map'/>
-            }
-            mapElement={
-              <div style={{height: '100%'}}/>
-            }
-            center={this.state.center}
-            onMapMounted={this.handleMapMounted.bind(this)}
-            onBoundsChanged={this.handleBoundsChanged.bind(this)}
-            onSearchBoxMounted={this.handleSearchBoxMounted.bind(this)}
-            bounds={this.state.bounds}
-            onPlacesChanged={this.handlePlacesChanged.bind(this)}
-            markers={this.state.markers}
-            onMarkerClick={this.handleMarkerClick.bind(this)}
-            onMarkerClose={this.handleMarkerClose.bind(this)}
-            onMapClick={this.handleMapClick.bind(this)}
-            onMarkerDragEnd={this.handleMarkerDrag.bind(this)}
-          />
-        </div>
-      </section>
+              <BaseGoogleMap
+                containerElement={
+                  <div className='map'/>
+                }
+                mapElement={
+                  <div style={{height: '100%'}}/>
+                }
+                center={this.state.center}
+                onMapMounted={this.handleMapMounted.bind(this)}
+                onBoundsChanged={this.handleBoundsChanged.bind(this)}
+                onSearchBoxMounted={this.handleSearchBoxMounted.bind(this)}
+                bounds={this.state.bounds}
+                onPlacesChanged={this.handlePlacesChanged.bind(this)}
+                markers={this.state.markers}
+                onMarkerClick={this.handleMarkerClick.bind(this)}
+                onMarkerClose={this.handleMarkerClose.bind(this)}
+                onMapClick={this.handleMapClick.bind(this)}
+                onMarkerDragEnd={this.handleMarkerDrag.bind(this)}
+              />
+            </div>
+          </section> : null}
+      </div>
     );
   }
 }

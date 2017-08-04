@@ -37,9 +37,19 @@ export const headers = header;
 export const DEFAULT_AVATAR = 'https://i.ytimg.com/vi/nMGUVPQC1Vo/maxresdefault.jpg';
 let alertOptions = {
   offset: 14,
-  position: 'bottom left',
+  position: 'top right',
   theme: 'dark',
   time: 5000,
   transition: 'scale'
 }
 export const ALERT_OPTIONS = alertOptions;
+
+let config_firebase = {
+  apiKey: "AIzaSyCOJT76DNusqTAFJbJpqUtR5L8VTQsLvkU",
+  authDomain: "secure-site-174215.firebaseapp.com",
+  databaseURL: "https://secure-site-174215.firebaseio.com",
+  projectId: "secure-site-174215",
+  storageBucket: "secure-site-174215.appspot.com",
+  messagingSenderId: "320676314657"
+};
+export const CONFIG_FIREBASE = config_firebase;

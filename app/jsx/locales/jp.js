@@ -5,7 +5,9 @@ module.exports = {
       error: 'サーバからのエラー',
       error_validate: '空白にしないでください',
       error_signup: 'アカウントが存在しましたとかパスワードが間違いました',
-      success: 'アップデートしました'
+      success: 'アップデートしました',
+      request_success: '要求を送りました',
+      cancel_success: '要求をやめました',
     },
     login: {
       login_view: 'ログイン',

@@ -5,7 +5,9 @@ module.exports = {
       error: 'Lỗi hệ thống',
       error_validate: 'Bạn không được để trống',
       error_signup: 'Tài khoản đã tồn tại hoặc mật khẩu lặp lại sai',
-      success: 'Cập nhật thành công'
+      success: 'Cập nhật thành công',
+      request_success: 'Gửi yêu cầu thành công',
+      cancel_success: 'Huỷ yêu cầu thành công',
     },
     login: {
       login_view: 'Đăng nhập',
