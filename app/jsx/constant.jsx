@@ -45,11 +45,11 @@ let alertOptions = {
 export const ALERT_OPTIONS = alertOptions;
 
 let config_firebase = {
-  apiKey: "AIzaSyCOJT76DNusqTAFJbJpqUtR5L8VTQsLvkU",
-  authDomain: "secure-site-174215.firebaseapp.com",
-  databaseURL: "https://secure-site-174215.firebaseio.com",
-  projectId: "secure-site-174215",
-  storageBucket: "secure-site-174215.appspot.com",
-  messagingSenderId: "320676314657"
+  apiKey: "AIzaSyDH43bXOjI77Iaf--bmSNivwOzMKMDnz7w",
+  authDomain: "feastival-a5b8d.firebaseapp.com",
+  databaseURL: "https://feastival-a5b8d.firebaseio.com",
+  projectId: "feastival-a5b8d",
+  storageBucket: "feastival-a5b8d.appspot.com",
+  messagingSenderId: "828758824476"
 };
 export const CONFIG_FIREBASE = config_firebase;

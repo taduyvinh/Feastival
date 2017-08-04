@@ -3,10 +3,19 @@ import ChatBubble from 'react-chat-bubble';
 import * as constant from  '../../constant';
 import AlertContainer from 'react-alert';
 import axios from 'axios'
+import TextareaAutosize from 'react-autosize-textarea';
 
 let translate = require('counterpart');
 
 let messages_ref = null;
+
+const textareaStyle = {
+  padding: '10px 8px',
+  border: '1px solid rgba(39,41,43,.15)',
+  borderRadius: 4,
+  fontSize: 15,
+  width : '100%'
+};
 
 export default class GroupShow extends React.Component {
   constructor(props) {
@@ -61,8 +70,11 @@ export default class GroupShow extends React.Component {
     axios.get(constant.API_GROUPS_URL + '/' +
       this.props.params.group_id, constant.headers)
       .then(response => {
-        if (response.data.users.filter((user, index) =>
-            (user.id == JSON.parse(localStorage.feastival_user).user_id)).length == 0) {
+        let user_id = JSON.parse(localStorage.feastival_user).user_id;
+        let findUser = response.data.users.find((user, index) => {
+          return user.id == user_id;
+        });
+        if (!findUser && response.data.creator.id != user_id) {
           window.location = constant.BASE_URL;
         }
         this.setState({
@@ -95,11 +107,17 @@ export default class GroupShow extends React.Component {
   }
 
   handleKeyDownSubmit(event) {
-    if (event.key == 'Enter') {
+    if (event.key == 'Enter' && this.state.chat_box != '') {
+      let avatar = '';
+      if (JSON.parse(localStorage.feastival_user).avatar == null ||
+        JSON.parse(localStorage.feastival_user).avatar == '')
+        avatar = constant.DEFAULT_AVATAR;
+      else
+        avatar = JSON.parse(localStorage.feastival_user).avatar;
       let mes = {
         'user_id': JSON.parse(localStorage.feastival_user).user_id,
         'type': 0,
-        'image': JSON.parse(localStorage.feastival_user).avatar,
+        'image': avatar,
         'text': this.state.chat_box,
         'time': '12:00'
       }
@@ -131,11 +149,6 @@ export default class GroupShow extends React.Component {
 
               <div className='col-md-6 col-sm-6 chat-body'>
                 <ChatBubble messages={this.state.messages}/>
-                <input className='chat-box'
-                  value={this.state.chat_box}
-                  onChange={this.onChatBoxChange.bind(this)}
-                  onKeyPress={this.handleKeyDownSubmit.bind(this)}
-                />
               </div>
               <div className='col-md-3 col-sm-3'>
                 <div className='group-description pmd-card pmd-z-depth-1'>
@@ -153,6 +166,18 @@ export default class GroupShow extends React.Component {
                   </div>
                 </div>
                 <MapForShow/>
+              </div>
+              <div className='row'>
+                <div className='col col-md-offset-3 col-md-6'>
+                  <div className='chat-box'>
+                    <TextareaAutosize style={textareaStyle}
+                      value={this.state.chat_box}
+                      rows={2}
+                      onChange={this.onChatBoxChange.bind(this)}
+                      onKeyPress={this.handleKeyDownSubmit.bind(this)}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
