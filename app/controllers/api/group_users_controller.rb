@@ -36,8 +36,8 @@ module Api
       render json: {
         message: I18n.t("api.group_user.index"),
         creator: group.creator,
-        group_users: group.group_users.pending.as_json(include:
-          {
+        group_users: group.group_users.pending.as_json(
+          include: {
             user: {include: :profile}
           }
         )
@@ -47,8 +47,8 @@ module Api
     def response_destroy
       render json: {
         message: I18n.t("api.group_user.destroy"),
-        group_users: group.group_users.pending.as_json(include:
-          {
+        group_users: group.group_users.pending.as_json(
+          include: {
             user: {include: :profile}
           }
         )
@@ -72,8 +72,8 @@ module Api
       render json: {
         message: I18n.t("api.group_user.update_success"),
         group_user: group_user,
-        group_users: group.group_users.pending.as_json(include:
-          {
+        group_users: group.group_users.pending.as_json(
+          include: {
             user: {include: :profile}
           }
         )

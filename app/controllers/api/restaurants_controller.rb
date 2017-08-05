@@ -77,7 +77,7 @@ module Api
                 }, only: []
               }
             }, only: [:title, :id]
-          }
+          }, vouchers: {only: :image}
         })
       }, status: :ok
     end

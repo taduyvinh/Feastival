@@ -34,3 +34,11 @@ en:
       update_success: "Approved join request successfully"
       update_fail: "Can not approve join request"
       group_not_found: "Group not found!"
+    vouchers:
+      destroy: "Deleted voucher"
+      create_success: "Voucher created successfully"
+      create_fail: "Can not create voucher"
+      update_success: "Updated voucher successfully"
+      update_fail: "Can not update voucher"
+      no_restaurant: "Restaurant not found"
+      dont_have_permission: "You don't have permission to create voucher"

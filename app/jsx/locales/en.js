@@ -144,7 +144,16 @@ module.exports = {
       website: 'Restaurant website',
       description: 'Restaurant description',
       update: 'Update',
-      info: 'Information'
+      info: 'Information',
+      new_voucher: 'New Voucher'
+    },
+    vouchers: {
+      from: 'From',
+      to: 'To',
+      upload: 'Create a new voucher',
+      description: 'Description',
+      submit: 'Submit',
+      image: 'Image'
     }
   }
 };
