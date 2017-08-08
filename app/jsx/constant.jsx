@@ -5,6 +5,7 @@ export const USER_INFO_URL = BASE_URL + '/users/';
 export const CURRENT_USER_INFO_URL = BASE_URL + '/my-profile';
 export const GROUPS_URL = BASE_URL + '/groups/';
 export const NEW_GROUP_URL = BASE_URL + '/new-group';
+export const NEW_VOUCHER_URL = '/new-voucher';
 export const RESTAURANTS_URL = BASE_URL + '/restaurants/';
 export const NEW_RESTAURANT_URL = BASE_URL + '/new-restaurant'
 export const API_USER_INFO_URL = BASE_URL + '/api/users/';
@@ -16,7 +17,8 @@ export const API_NEW_RESTAURANT_URL = BASE_URL + 'api/restaurants/new';
 export const API_RESTAURANTS_URL = BASE_URL + '/api/restaurants/';
 export const API_GROUPS_URL = BASE_URL + '/api/groups';
 export const API_NEW_GROUP_URL = BASE_URL + '/api/groups/new';
-export const API_JOIN_URL = '/group_users/'
+export const API_JOIN_URL = '/group_users/';
+export const API_VOUCHERS_URL = '/vouchers/';
 export const marker_types = {
   user: 'user_marker',
   group: 'group_marker',

@@ -1,6 +1,5 @@
 module Api
   class GroupsController < BaseController
-    skip_before_action :authenticate_user_from_token
     before_action :find_object, only: [:show, :update]
     authorize_resource
 
@@ -66,10 +65,11 @@ module Api
       group_user = group.group_users.find_by user: current_user
       render json: {
         message: I18n.t(".group.show_success"),
-        group: group,
-        users: group.joined_users.as_json(include: :profile),
-        group_user: group_user,
-        creator: group.creator.as_json(include: :profile)
+        group: group.as_json(
+          include: {
+            users: {include: :profile}
+          }
+        ), group_user: group_user
       }, status: :ok
     end
 

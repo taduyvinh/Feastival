@@ -16,6 +16,7 @@ class Ability
     can :update, Group, creator_id: id
     can :create, GroupUser
     can :destroy, GroupUser, user_id: id
+    can :manage, Voucher if user.has_role? :manager
     can [:update, :destroy, :index], GroupUser do |group_user|
       user.has_role? :creator, group_user.group
     end

@@ -3,6 +3,7 @@ jp:
   app_name : "Festival"
   object_not_found: "利用不可!"
   api:
+    not_authorized: "Unauthorized access"
     missing_params: "パラメ-タ-がありません"
     invalid_token: "無効なト-クン"
     restaurants:
@@ -19,3 +20,25 @@ jp:
       sign_up_success: "正常に登録"
       sign_up_fail: "アカウントを登録できません"
       not_authorized: "不正アクセス"
+    group:
+      index_success: "すべてのグループを正常にロードしました"
+      show_success: "グループを正常に表示"
+      create_success: "作成されたグループ！"
+      create_fail: "グループを作成できません"
+      update_success: "グループを正常に更新しました"
+      update_fail: "グループを更新できません"
+    group_user:
+      destroy: "削除された結合関係"
+      create_success: "ユーザーが参加したグループ"
+      create_fail: "ユーザーはこのグループに参加できません"
+      update_success: "参加リクエストを正常に承認しました"
+      update_fail: "参加リクエストを承認できません"
+      group_not_found: "グループが見つかりません!"
+    vouchers:
+      destroy: "削除されたバウチャー"
+      create_success: "バウチャーが正常に作成されました"
+      create_fail: "バウチャーを作成できません"
+      update_success: "バウチャーを更新しました"
+      update_fail: "バウチャーを更新できません"
+      no_restaurant: "レストランが見つかりません"
+      dont_have_permission: "バウチャーを作成する権限がありません"

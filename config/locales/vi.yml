@@ -3,6 +3,7 @@ vi:
   app_name : "Festival"
   object_not_found: "Hiện không có!"
   api:
+    not_authorized: "Bạn không có quyền truy cập trang này"
     missing_params: "Thiếu tham số"
     invalid_token: "Token không hợp lệ"
     restaurants:
@@ -19,3 +20,25 @@ vi:
       sign_up_success: "Đăng kí thành công"
       sign_up_fail: "Không thể đăng kí tài khoản"
       not_authorized: "Xác thực không thành công"
+    group:
+      index_success: "Dữ liệu nhóm xung quanh"
+      show_success: "Thông tin nhóm"
+      create_success: "Tạo nhóm thành công"
+      create_fail: "Không thể tạo nhóm"
+      update_success: "Cập nhật nhóm thành công!"
+      update_fail: "Không thể cập nhật nhóm"
+    group_user:
+      destroy: "Đã rời khỏi nhóm"
+      create_success: "Tham gia nhóm thành công"
+      create_fail: "Không thể tham gia nhóm"
+      update_success: "Chấp nhận yêu cầu thành côngy"
+      update_fail: "Không thể xử lý yêu cầu"
+      group_not_found: "Không tìm thấy nhóm trên!"
+    vouchers:
+      destroy: "Xóa voucher"
+      create_success: "Tạo voucher thành công"
+      create_fail: "Không thể tạo voucher"
+      update_success: "Cập nhật voucher thành công"
+      update_fail: "Không thể cập nhật voucher"
+      no_restaurant: "Không tìm thấy nhà hàng"
+      dont_have_permission: "Không có quyền sửa voucher"

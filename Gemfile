@@ -23,6 +23,10 @@ gem "simple_token_authentication"
 gem "font-awesome-sass"
 gem "faker"
 gem "geocoder"
+gem "carrierwave"
+gem "cloudinary"
+gem "carrierwave-base64"
+gem "config"
 
 group :development, :test do
   gem "pry"
