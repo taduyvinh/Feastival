@@ -51,8 +51,8 @@ export default class GroupShowInfo extends React.Component {
         this.setState({
           group: response.data.group,
           group_user: response.data.group_user,
-          users: response.data.users,
-          creator: response.data.creator,
+          users: response.data.group.users,
+          creator: response.data.group.creator,
           center: position,
           markers: [{position: position}]
         })
@@ -138,7 +138,7 @@ export default class GroupShowInfo extends React.Component {
       return (
         <div className='pmd-card pmd-z-depth-1 text-center'
           onClick={this.showInfoUser.bind(this,this.state.creator.id)}>
-          <img src={this.state.creator.profile.avatar} className='image'/>
+          <img src={this.state.creator.profile.avatar.url} className='image'/>
           <p className='max-lines'>{this.state.creator.profile.name}</p>
         </div>
       );
@@ -175,7 +175,7 @@ export default class GroupShowInfo extends React.Component {
                         <div key={index} className='col-sm-4'
                           onClick={this.showInfoUser.bind(this,this.state.users[index].id)}>
                           <div className='pmd-card pmd-z-depth-1 text-center'>
-                            <img src={user.profile.avatar} className='image'/>
+                            <img src={user.profile.avatar.url} className='image'/>
                             <p className='max-lines'>{user.profile.name}</p>
                           </div>
                         </div>
