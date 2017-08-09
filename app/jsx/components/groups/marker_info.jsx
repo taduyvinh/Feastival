@@ -101,10 +101,10 @@ export default class MarkerInfo extends React.Component {
       this.state.groups.filter((group, index) => (index < 3))
         .map((group, index) => {
         return (
-          <div className='col-md-3 pmd-card pmd-z-depth-1 group-card'
+          <div className='col-xs-3 pmd-card pmd-z-depth-1 group-card'
             key={index}
             onClick={() => this.handleGroupClick(group.id)}>
-            <img src={group.creator.profile.avatar}
+            <img src={group.creator.profile.avatar.url}
               className='image'/>
             <OverlayTrigger
               placement='right'

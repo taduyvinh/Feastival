@@ -67,7 +67,8 @@ module Api
         message: I18n.t(".group.show_success"),
         group: group.as_json(
           include: {
-            users: {include: :profile}
+            users: {include: :profile},
+            creator: {include: :profile}
           }
         ), group_user: group_user
       }, status: :ok

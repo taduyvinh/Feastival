@@ -71,7 +71,7 @@ export default class GroupShow extends React.Component {
       this.props.params.group_id, constant.headers)
       .then(response => {
         let user_id = JSON.parse(localStorage.feastival_user).user_id;
-        let findUser = response.data.users.find((user, index) => {
+        let findUser = response.data.group.users.find((user, index) => {
           return user.id == user_id;
         });
         if (!findUser && response.data.creator.id != user_id) {

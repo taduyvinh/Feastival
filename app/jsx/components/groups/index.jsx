@@ -116,14 +116,15 @@ export default class GroupIndex extends React.Component {
       },
       type: constant.marker_types.user
     }
-    axios.get(constant.API_GROUPS_URL,
-      {
-        params: {
-          lat: location.lat,
-          lng: location.lng,
-          distance: this.state.distance
-        }
-      }, constant.headers)
+
+    let headers = Object.assign({}, constant.headers, {
+      params: {
+        lat: location.lat,
+        lng: location.lng,
+        distance: this.state.distance
+      }
+    });
+    axios.get(constant.API_GROUPS_URL, headers)
       .then(response => {
         let marker;
         response.data.restaurants.map(restaurant => {
@@ -264,14 +265,15 @@ export default class GroupIndex extends React.Component {
       position: {lat: position.lng, lng: position.lng}
     }
     let restaurantMarkers = [], groupMarkers = [];
-    axios.get(constant.API_GROUPS_URL,
-      {
-        params: {
-          lat: position.lat,
-          lng: position.lng,
-          distance: distance || this.state.distance
-        }
-      }, constant.headers)
+
+    let headers = Object.assign({}, constant.headers, {
+      params: {
+        lat: position.lat,
+        lng: position.lng,
+        distance: distance || this.state.distance
+      }
+    });
+    axios.get(constant.API_GROUPS_URL, headers)
     .then(response => {
       let marker;
       response.data.restaurants.map(restaurant => {
