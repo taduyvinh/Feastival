@@ -144,6 +144,15 @@ module.exports = {
       description: 'Mô tả',
       update: 'Cập nhật',
       info: 'Thông tin'
+    },
+    vouchers: {
+      from: 'Từ',
+      to: 'Đến',
+      upload: 'Tạo 1 voucher mới',
+      description: 'Mô tả',
+      submit: 'Gửi lên',
+      image: 'Ảnh',
+      receive_voucher: 'Nhận Voucher'
     }
   }
 };

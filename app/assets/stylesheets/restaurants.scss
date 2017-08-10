@@ -1,8 +1,14 @@
 $gray-lighter: #e8e8e8;
 $gray-darker: #d8d8d8;
+$gray-more-darker: #bbb;
 $gray-normal: #f5f5f5;
-$green-lighter: #03ae03;
+$green-lighter: #008e00;
+$blue: #1b80c9;
+$red: #bf0400;
+$red-darker: #7d1917;
+$orange: #f76b28;
 $white: #fff;
+$black: #000;
 
 .restaurants {
   display: inline-block;
@@ -109,6 +115,98 @@ $white: #fff;
         padding-left: 30px;
         padding-right: 30px;
       }
+    }
+  }
+}
+
+.restaurant-show {
+  box-shadow: 1px 1px 1px 1px $gray-darker;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 20px;
+
+  .tag {
+    background-color: $red-darker;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px 1px $gray-more-darker;
+    color: $white;
+    font-weight: bold;
+    padding: 5px 8px;
+  }
+
+  .main-info {
+    box-shadow: 0 1px 2px 1px $gray-more-darker;
+    margin: 0 auto;
+
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .phonenumber {
+      background-color: $green-lighter;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px 1px $gray-darker;
+      color: $white;
+      display: inline-block;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      padding: 5px 8px;
+    }
+
+    .website {
+      background-color: $blue;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px 1px $gray-darker;
+      color: $white;
+      display: inline-block;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      padding: 5px 8px;
+    }
+
+    .description {
+      border-radius: 3px;
+      box-shadow: 0 1px 2px 1px $gray-more-darker;
+      display: inline-block;
+      padding: 5px 8px;
+    }
+
+    .address {
+      background-color: $red;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px 1px $gray-darker;
+      color: $white;
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 5px 8px;
+    }
+  }
+
+  .base-info {
+    padding: 25px 20px;
+  }
+
+  .fa {
+    color: $white;
+    margin-right: 8px;
+  }
+
+  .fa-pencil {
+    color: $black;
+  }
+
+  .fa-star {
+    color: $black;
+  }
+
+  .restaurant-ava {
+    padding: 0;
+
+    img {
+      height: 250px;
+      width: 100%;
     }
   }
 }

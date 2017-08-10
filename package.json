@@ -20,6 +20,7 @@
     "eslint-plugin-react": "^7.1.0",
     "google-maps-react": "^1.0.19",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "propellerkit": "^1.1.0",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.6.0",

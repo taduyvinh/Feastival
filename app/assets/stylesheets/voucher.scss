@@ -1,0 +1,152 @@
+$white: #fff;
+$gray-lighter: #f5f5f5;
+$gray-darker: #d0d0d0;
+$gray-more-darker: #bbb;
+$gray-most-darker: #212121;
+$shadow-color: rgba(0, 0, 0, .3);
+$punch-shadow-color: rgba(0, 0, 0, .12);
+$red: #7d1917;
+$blue: #1b80c9;
+$black: #000;
+
+.footer-info {
+  display: flex;
+
+  .col-md-5 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-md-7 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .album {
+    background-color: $white;
+    box-shadow: 0 1px 2px 1px $gray-darker;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 20px 20px 30px;
+    width: 100%;
+
+    img {
+      border: 1px solid $gray-more-darker;
+      float: left;
+      margin-left: calc((100% - 380px) / 3);
+      margin-right: calc((100% - 380px) / 3);
+      margin-top: 20px;
+    }
+  }
+
+  .vouchers {
+    box-shadow: 0 1px 2px 1px $gray-darker;
+    display: inline-block;
+    height: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+.voucher {
+  background-color: $white;
+  box-shadow: 0 1px 1px 1px $shadow-color;
+  color: $black;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin: 0 35px 30px;
+  margin-left: calc((100% - 500px) / 4);
+  margin-right: calc((100% - 500px) / 4);
+  margin-top: 40px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  width: 250px;
+
+  .divider {
+    background: linear-gradient(to right, transparent 15%, $gray-most-darker 50%, transparent 85%) no-repeat 0 50%;
+    background-size: 100% 1px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .punch {
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: inset -2px 0 1px $punch-shadow-color;
+    height: 40px;
+    left: -20px;
+    position: absolute;
+    top: 40px;
+    width: 40px;
+  }
+
+  .restaurant-name {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    padding: 10px;
+  }
+
+  .time {
+    display: inline-block;
+    margin: 0 auto 10px;
+    text-align: left;
+
+    strong {
+      margin-right: 5px;
+    }
+  }
+}
+
+.voucher-detail-info {
+  .container {
+    font-size: 1.2em;
+    width: 690px;
+  }
+
+  .voucher-info {
+    box-shadow: 0 1px 2px 1px $gray-darker;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 5px 15px 10px;
+    width: calc(100% - 35px);
+  }
+
+  .restaurant-name {
+    display: inline-block;
+  }
+
+  .recv-vou-btn {
+    background-color: $blue;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 1 1px 1px 1px $gray-darker;
+    color: $white;
+    float: right;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 5px 8px;
+  }
+
+  strong {
+    margin-right: 15px;
+  }
+
+  .footer {
+    background-color: $red;
+    box-shadow: 0 1px 2px 1px $gray-darker;
+    color: $white;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .app-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 1;
+  }
+}

@@ -56,7 +56,8 @@ User.with_role(:manager).each do |manager|
     latitude: rand(20.990127..21.0312335),
     longitude: rand(105.795982..105.856032),
     phonenumber: Faker::PhoneNumber.phone_number,
-    website: Faker::Internet.url
+    website: Faker::Internet.url,
+    description: Faker::Lorem.paragraph
   )
 end
 
@@ -123,4 +124,22 @@ end
 
 User.where(id: 11..50).each do |user|
   user.group_users.create group_id: rand(1..10)
+end
+
+10.times do
+  Voucher.create!(
+    restaurant_id: rand(1..20),
+    from: rand(5.days.from_now..10.days.from_now),
+    to: rand(11.days.from_now..20.days.from_now),
+    description: Faker::Lorem.sentence,
+    image: Faker::Avatar.image
+  )
+end
+
+10.times do
+  VoucherCode.create(
+    group_id: rand(1..10),
+    voucher_id: rand(1..40),
+    code: Faker::Lorem.sentence
+  )
 end

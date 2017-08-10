@@ -3,6 +3,7 @@ $red-lighter: #b10018;
 $white: #fff;
 $yellow-lighter: #fdd152;
 $gray-lighter: rgba(252, 243, 215, .9);
+$gray-less-darker: #bbb;
 $gray-darker: rgba(0, 0, 0, .3);
 $blue: #6495ed;
 
@@ -39,6 +40,7 @@ body {
 
 .navbar {
   border-radius: 0;
+  box-shadow: 1px 1px 2px 1px $gray-less-darker;
   margin-bottom: 0;
 }
 

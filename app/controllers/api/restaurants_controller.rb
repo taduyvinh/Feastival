@@ -1,8 +1,7 @@
 module Api
   class RestaurantsController < BaseController
     attr_reader :restaurant
-    skip_before_action :authenticate_user_from_token
-    before_action :find_object, only: [:show, :update]
+    before_action :find_object, except: [:index]
     before_action :correct_user, only: [:update]
 
     def index
