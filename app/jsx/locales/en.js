@@ -153,7 +153,8 @@ module.exports = {
       upload: 'Create a new voucher',
       description: 'Description',
       submit: 'Submit',
-      image: 'Image'
+      image: 'Image',
+      receive_voucher: 'Receive Voucher'
     }
   }
 };

@@ -12,5 +12,5 @@ class Voucher < ApplicationRecord
     in: Settings.min_period_of_time.hour.from_now..DateTime::Infinity.new
   }
   validates :to, presence: true
-  validates :description, :image, presence: true
+  validates :description, presence: true
 end

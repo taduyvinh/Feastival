@@ -4,17 +4,15 @@
 }
 
 .group-chat-body {
+  height: calc(100vh - 200px);
   margin-left: 5px;
   margin-right: 5px;
-  max-height: calc(100vh - 200px);
-  height: calc(100vh - 200px);
 }
 
 .chat-body {
-  max-height: calc(100vh - 243px);
   height: calc(100vh - 243px);
-  overflow-y: scroll;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .chat-box {

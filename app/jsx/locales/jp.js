@@ -139,6 +139,15 @@ module.exports = {
       description: 'レストランの説明',
       update: 'アップデ-ト',
       info: '情報'
+    },
+    vouchers: {
+      from: 'から',
+      to: 'まで',
+      upload: '新バウチャ-を作成する',
+      description: '説明',
+      submit: '提出する',
+      image: '画像',
+      receive_voucher: 'バウチャ-を受け取る'
     }
   }
 };
