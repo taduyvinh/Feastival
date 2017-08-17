@@ -71,75 +71,76 @@ export default class VoucherCreate extends React.Component {
     let imagePreview = null;
     if (imagePreviewUrl) {
       imagePreview = (<img src={imagePreviewUrl} />);
-    } else {
-      imagePreview = (<div>{translate('app.vouchers.upload')}</div>);
     }
 
     return (
-      <div className='container'>
-        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
-        <div className='imgPreview'>
-          {imagePreview}
+      <div className='create-voucher'>
+        <div className='container'>
+          <div className='title'>
+            {translate('app.vouchers.upload')}
+          </div>
+          <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
+          <form onSubmit={e => this.handleSubmit(e)}>
+            <div className='col-md-4'>
+              <div className='image-section'>
+                <div className='img-preview'>
+                  {imagePreview}
+                </div>
+                <div className='file-upload btn btn-primary'>
+                  <span>{translate('app.vouchers.upload_image')}</span>
+                  <input className='upload'
+                    type='file'
+                    name='image'
+                    onChange={e => this.handleImageChange(e)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='col-md-8'>
+              <div className='text-section'>
+                <div className='form-group'>
+                  <label class='control-label' htmlFor='desc-text'>
+                    {translate('app.vouchers.description')}
+                  </label>
+                  <textarea
+                    className='form-control'
+                    name='description'
+                    id='desc-text'
+                    onChange={this.handleInputChange.bind(this)}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label className='control-label' htmlFor='datepicker-start'>
+                    {translate('app.vouchers.from')}
+                  </label>
+                  <input type='datetime-local' name='from'
+                    className='time-input form-control'
+                    onChange={this.handleInputChange.bind(this)}
+                    id='datepicker-start'>
+                  </input>
+                </div>
+
+                <div className='form-group'>
+                  <label className='control-label'
+                    htmlFor='datepicker-end'>
+                    {translate('app.vouchers.to')}
+                  </label>
+                  <input type='datetime-local' name='to'
+                    className='time-input form-control'
+                    onChange={this.handleInputChange.bind(this)}
+                    id='datepicker-end'></input>
+                </div>
+
+                <button className='btn btn-primary'
+                  type='submit'
+                  onClick={e => this.handleSubmit(e)}>
+                  {translate('app.vouchers.submit')}
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <div className='form-group'>
-            <div className='col-md-10 col-md-offset-1'>
-              <label class='control-label' htmlFor='from'>
-                {translate('app.vouchers.description')}
-              </label>
-              <input
-                type='form-contol'
-                name='description'
-                onChange={this.handleInputChange.bind(this)}
-                />
-            </div>
-          </div>
-
-          <div className='form-group'>
-            <div className='col-md-10 col-md-offset-1'>
-              <label class='control-label' htmlFor='Image'>
-                {translate('app.vouchers.image')}
-              </label>
-              <input className='form-control'
-                type='file'
-                name='image'
-                onChange={e => this.handleImageChange(e)}
-              />
-            </div>
-          </div>
-
-          <div className='row'>
-            <div className='col-sm-6'>
-              <div className='form-group pmd-textfield'>
-                <label class='control-label' htmlFor='from'>
-                  {translate('app.vouchers.from')}
-                </label>
-                <input type='datetime-local' name='from' className='form-control'
-                  onChange={this.handleInputChange.bind(this)}
-                  id='datepicker-start'>
-                </input>
-              </div>
-            </div>
-
-            <div className='col-sm-6'>
-              <div className='form-group pmd-textfield'>
-                <label className='control-label' htmlFor='to'>
-                  {translate('app.vouchers.to')}
-                </label>
-                <input type='datetime-local' name='to' className='form-control'
-                  onChange={this.handleInputChange.bind(this)}
-                  id='datepicker-end'></input>
-              </div>
-            </div>
-
-          </div>
-          <button className='btn btn-primary'
-            type='submit'
-            onClick={e => this.handleSubmit(e)}>
-            {translate('app.vouchers.submit')}
-          </button>
-        </form>
       </div>
     )
   }

@@ -13,7 +13,7 @@ export default class Voucher extends React.Component {
     };
   }
 
-    handleClick() {
+  handleClick() {
     this.setState({isShowingModal: true});
   }
 

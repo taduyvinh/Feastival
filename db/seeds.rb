@@ -126,7 +126,7 @@ User.where(id: 11..50).each do |user|
   user.group_users.create group_id: rand(1..10)
 end
 
-10.times do
+20.times do
   Voucher.create!(
     restaurant_id: rand(1..20),
     from: rand(5.days.from_now..10.days.from_now),
@@ -136,7 +136,7 @@ end
   )
 end
 
-10.times do
+20.times do
   VoucherCode.create(
     group_id: rand(1..10),
     voucher_id: rand(1..40),

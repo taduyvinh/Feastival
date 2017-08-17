@@ -23,6 +23,7 @@ module.exports = {
     'static-pages': {
       new_group: 'New group',
       groups: 'Groups',
+      new_restaurant: 'New restaurant',
       restaurants: 'Restaurants',
       language: {
         vietnamese: 'Tiếng Việt',
@@ -136,25 +137,38 @@ module.exports = {
         no_request: 'No new request'
       },
     },
-    restaurant_info: {
-      update_title: 'Update restaurant info',
-      title: 'Restaurant name',
-      address: 'Restaurant address',
-      phonenumber: 'Restaurant phonenumber',
-      website: 'Restaurant website',
-      description: 'Restaurant description',
-      update: 'Update',
-      info: 'Information',
-      new_voucher: 'New Voucher'
+    restaurants: {
+      create: {
+        category: 'Category',
+        submit: 'Submit',
+        title: 'Title',
+        description: 'Description',
+        address: 'Address',
+        website: 'Website',
+        phonenumber: 'Phonenumber'
+      },
+      info: {
+        update_title: 'Update restaurant info',
+        title: 'Restaurant name',
+        address: 'Restaurant address',
+        phonenumber: 'Restaurant phonenumber',
+        website: 'Restaurant website',
+        description: 'Restaurant description',
+        update: 'Update',
+        info: 'Information',
+        new_voucher: 'New Voucher'
+      }
     },
     vouchers: {
+      title: 'Vouchers',
       from: 'From',
       to: 'To',
       upload: 'Create a new voucher',
       description: 'Description',
       submit: 'Submit',
       image: 'Image',
-      receive_voucher: 'Receive Voucher'
+      receive_voucher: 'Receive Voucher',
+      upload_image: 'Upload Image'
     }
   }
 };
