@@ -77,7 +77,7 @@ export default class GroupShow extends React.Component {
         let findUser = response.data.group.users.find((user, index) => {
           return user.id == user_id;
         });
-        if (findUser == null && response.data.creator.id != user_id) {
+        if (findUser == undefined && response.data.group.creator.id != user_id) {
           window.location = constant.GROUPS_URL + this.props.params.group_id + '/info';
         }
         this.setState({

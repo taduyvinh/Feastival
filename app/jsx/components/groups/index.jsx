@@ -180,7 +180,10 @@ export default class GroupIndex extends React.Component {
       type: constant.marker_types.user,
       draggable: true
     }
-    this.setState({markers: this.state.markers});
+    this.setState({
+      markers: this.state.markers,
+      info_show: false
+    });
     this.replaceMarkers(position)
   }
 
@@ -198,7 +201,7 @@ export default class GroupIndex extends React.Component {
             info_show: true,
             name: targetMarker.infocontent
           })
-          axios.get(constant.API_GROUPS_URL + targetMarker-id)
+          axios.get(constant.API_GROUPS_URL + targetMarker.id, constant.headers)
             .then(response => {
               this.setState({group: response.data.group})
             })
@@ -213,7 +216,7 @@ export default class GroupIndex extends React.Component {
         info_show: true,
         name: targetMarker.infoContent,
       });
-      axios.get(constant.API_RESTAURANTS_URL + targetMarker.id)
+      axios.get(constant.API_RESTAURANTS_URL + targetMarker.id, constant.headers)
         .then(response => {
           this.setState({restaurant: response.data.restaurant});
         })

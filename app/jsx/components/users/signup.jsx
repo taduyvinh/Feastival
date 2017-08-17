@@ -32,7 +32,9 @@ export default class Signup extends React.Component {
           email: email,
           user_id: response.data.user.id,
           USER_TOKEN: response.data.user.authentication_token,
-          avatar: response.data.user_session.avatar
+          avatar: {
+            url: constant.DEFAULT_AVATAR
+          }
         }
         localStorage.setItem('feastival_user', JSON.stringify(feastival_user));
         window.location = constant.CURRENT_USER_INFO_URL;
