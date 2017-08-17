@@ -20,7 +20,7 @@ export default class GroupUserIndex extends React.Component {
       .then(response => {
         if (JSON.parse(localStorage.feastival_user).user_id !=
           response.data.creator.id)
-          window.location = constant.BASE_URL;
+          window.location = constant.GROUPS_URL + this.props.params.group_id + '/info';
         else
           this.setState({group_users: response.data.group_users});
       })
