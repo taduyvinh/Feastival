@@ -4,6 +4,7 @@ import * as constant from  '../../constant';
 import AlertContainer from 'react-alert';
 import axios from 'axios'
 import TextareaAutosize from 'react-autosize-textarea';
+import UserItem from './user_item';
 
 let translate = require('counterpart');
 
@@ -80,11 +81,11 @@ export default class GroupShow extends React.Component {
         this.setState({
           group: response.data.group,
           group_user: response.data.group_user,
-          users: response.data.users
-        })
+          users: response.data.group.users
+        });
       })
       .catch(error => {
-        this.showAlert(translate('app.error.error'));
+        this.showAlert(error);
       })
   }
 
@@ -128,47 +129,38 @@ export default class GroupShow extends React.Component {
 
   renderView() {
     if (localStorage.feastival_user != null) {
-      return (<section className='group-chat'>
-        <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
-        <div className='row'>
-          <div className='col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8 pmd-card pmd-z-depth-1'>
+      return (
+        <section className='group-chat'>
+          <AlertContainer ref={a => this.msg = a} {...constant.ALERT_OPTIONS} />
+          <div className='group-chat-header'>
+            {this.state.group.title}
+          </div>
+          <div className='group-chat-body'>
             <div className='row'>
-              <img src={this.state.cover_image} className='cover col-md-12 col-sm-12'/>
-            </div>
-            <div className='row group-chat-body'>
-              <div className='col-md-3 col-sm-3 pmd-card pmd-z-depth-1'>
-                <h1>Voucher</h1>
-                <br/>
-                <p>12312414</p>
-                <hr/>
-                <p>Description</p>
-                <p>Description</p>
-                <p>Description</p>
-                <p>Description</p>
-              </div>
+              <div className='col-sm-12 col-md-3'>
+                <div className='group-users'>
+                  <div className='users-list'>
+                    {
+                      this.state.users.map((user, index) => {
+                        return (
+                          <UserItem key={index} user={user}/>
+                        );
+                      })
+                    }
 
-              <div className='col-md-6 col-sm-6 chat-body'>
-                <ChatBubble messages={this.state.messages}/>
-              </div>
-              <div className='col-md-3 col-sm-3'>
-                <div className='group-description pmd-card pmd-z-depth-1'>
-                  <p>Description</p>
-                  <p>Description</p>
-                  <p>Description</p>
-                  <p>Description</p>
-
-                  <div className='join-btn text-center'>
-                    <button
-                      className='btn btn-primary join'
-                      onClick={this.handleLeaveGroup.bind(this)}>
-                      {translate('app.groups.view.leave')}
-                    </button>
+                    <div className='join-btn text-center'>
+                      <button
+                        className='btn btn-primary join'
+                        onClick={this.handleLeaveGroup.bind(this)}>
+                        {translate('app.groups.view.leave')}
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <MapForShow/>
               </div>
-              <div className='row'>
-                <div className='col col-md-offset-3 col-md-6'>
+              <div className='col-sm-12 col-md-6'>
+                <div className='chat-body'>
+                  <ChatBubble messages={this.state.messages}/>
                   <div className='chat-box'>
                     <TextareaAutosize style={textareaStyle}
                       value={this.state.chat_box}
@@ -179,10 +171,26 @@ export default class GroupShow extends React.Component {
                   </div>
                 </div>
               </div>
+              <div className='col-sm-12 col-md-3'>
+                <div className='group-info'>
+                  <div className='voucher-info'>
+                    <div className='title'>{translate('app.vouchers.title')}</div>
+                    <p>12312414</p>
+                    <hr/>
+                    <p>Description</p>
+                    <p>Description</p>
+                    <p>Description</p>
+                    <p>Description</p>
+                  </div>
+                  <div className='group-map'>
+                    <MapForShow/>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>);
+        </section>
+      );
       return null;
     }
   }

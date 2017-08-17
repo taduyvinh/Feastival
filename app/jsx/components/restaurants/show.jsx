@@ -39,7 +39,7 @@ export default class RestaurantShow extends React.Component {
         });
       })
       .catch(error => {
-        this.showAlert(translate('app.error.error'));
+        this.showAlert(error);
       });
   }
 

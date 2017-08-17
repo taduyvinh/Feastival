@@ -69,15 +69,19 @@ export default class Navbar extends React.Component {
   }
 
   restaurantClick() {
-    window.location = constant.RESTAURANTS_URL
+    window.location = constant.RESTAURANTS_URL;
+  }
+
+  newRestaurantClick() {
+    window.location = constant.NEW_RESTAURANT_URL;
   }
 
   newGroupClick() {
-    window.location = constant.NEW_GROUP_URL
+    window.location = constant.NEW_GROUP_URL;
   }
 
   groupClick() {
-    window.location = constant.GROUPS_URL
+    window.location = constant.GROUPS_URL;
   }
 
   signUpClick() {
@@ -105,27 +109,28 @@ export default class Navbar extends React.Component {
           </div>
           <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
             <ul className='nav navbar-nav'>
-              <li className='active' onClick={this.homeClick.bind(this)}>
+              <li onClick={this.homeClick.bind(this)}>
                 <a>{translate('app.static-pages.home')}
-                  <span className='sr-only'>(current)</span>
                 </a>
               </li>
 
-              <li className='active' onClick={this.restaurantClick.bind(this)}>
+              <li onClick={this.restaurantClick.bind(this)}>
                 <a>{translate('app.static-pages.restaurants')}
-                  <span className='sr-only'>(current)</span>
                 </a>
               </li>
 
-              <li className='active' onClick={this.groupClick.bind(this)}>
+              <li onClick={this.newRestaurantClick.bind(this)}>
+                <a>{translate('app.static-pages.new_restaurant')}
+                </a>
+              </li>
+
+              <li onClick={this.groupClick.bind(this)}>
                 <a>{translate('app.static-pages.groups')}
-                  <span className='sr-only'>(current)</span>
                 </a>
               </li>
 
-              <li className='active' onClick={this.newGroupClick.bind(this)}>
+              <li onClick={this.newGroupClick.bind(this)}>
                 <a>{translate('app.static-pages.new_group')}
-                  <span className='sr-only'>(current)</span>
                 </a>
               </li>
 

@@ -23,6 +23,7 @@ module.exports = {
     'static-pages': {
       new_group: 'Nhóm mới',
       groups: 'Nhóm xung quanh',
+      new_restaurant: 'Nhà hàng mới',
       restaurants: 'Nhà hàng',
       language: {
         vietnamese: 'Tiếng Việt',
@@ -135,24 +136,37 @@ module.exports = {
         no_request: 'Không có yêu cầu nào mới'
       }
     },
-    restaurant_info: {
-      update_title: 'Cập nhật thông tin nhà hàng',
-      title: 'Tên nhà hàng',
-      address: 'Địa chỉ nhà hàng',
-      phonenumber: 'Số điện thoại',
-      website: 'Trang web',
-      description: 'Mô tả',
-      update: 'Cập nhật',
-      info: 'Thông tin'
+    restaurant: {
+      info: {
+        update_title: 'Cập nhật thông tin nhà hàng',
+        title: 'Tên nhà hàng',
+        address: 'Địa chỉ nhà hàng',
+        phonenumber: 'Số điện thoại',
+        website: 'Trang web',
+        description: 'Mô tả',
+        update: 'Cập nhật',
+        info: 'Thông tin'
+      },
+      create: {
+        category: 'Hình thức',
+        submit: 'Tạo nhà hàng',
+        title: 'Tên nhà hàng',
+        description: 'Mô tả',
+        address: 'Địa chỉ',
+        phonenumber: 'Số điện thoại',
+        website: 'Trang web'
+      }
     },
     vouchers: {
+      title: 'Vouchers',
       from: 'Từ',
       to: 'Đến',
       upload: 'Tạo 1 voucher mới',
       description: 'Mô tả',
       submit: 'Gửi lên',
       image: 'Ảnh',
-      receive_voucher: 'Nhận Voucher'
+      receive_voucher: 'Nhận Voucher',
+      upload_image: 'Đăng ảnh'
     }
   }
 };

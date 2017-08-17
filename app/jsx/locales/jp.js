@@ -23,6 +23,7 @@ module.exports = {
     'static-pages': {
       new_group: '新しいグループ',
       groups: 'グループ',
+      new_restaurant: '新しいレストラン',
       restaurants: 'レストラン',
       language: {
         vietnamese: 'Tiếng Việt',
@@ -130,24 +131,37 @@ module.exports = {
         no_request: 'がありません'
       }
     },
-    restaurant_info: {
-      update_title: 'レストラン情報アップデ-ト',
-      title: 'レストラン名',
-      address: 'レストラン場所',
-      phonenumber: '電話番号',
-      website: 'サイト',
-      description: 'レストランの説明',
-      update: 'アップデ-ト',
-      info: '情報'
+    restaurantinfo: {
+      info: {
+        update_title: 'レストラン情報アップデ-ト',
+        title: 'レストラン名',
+        address: 'レストラン場所',
+        phonenumber: '電話番号',
+        website: 'サイト',
+        description: 'レストランの説明',
+        update: 'アップデ-ト',
+        info: '情報'
+      },
+      create: {
+        category: 'カテゴリー',
+        submit: '提出する',
+        title: 'タイトル',
+        description: '説明',
+        address: 'アドレス',
+        phonenumber: '電話番号',
+        website: 'サイト'
+      }
     },
     vouchers: {
+      title: 'バウチャ-',
       from: 'から',
       to: 'まで',
       upload: '新バウチャ-を作成する',
       description: '説明',
       submit: '提出する',
       image: '画像',
-      receive_voucher: 'バウチャ-を受け取る'
+      receive_voucher: 'バウチャ-を受け取る',
+      upload_image: '画像アップロード'
     }
   }
 };
