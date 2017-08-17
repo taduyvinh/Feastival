@@ -134,7 +134,8 @@ module.exports = {
         cancel: 'Cancel Request',
         accept: 'Accept',
         decline: 'Decline',
-        no_request: 'No new request'
+        no_request: 'No new request',
+        requests: 'requests'
       },
     },
     restaurants: {

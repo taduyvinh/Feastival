@@ -43,4 +43,13 @@ class User < ApplicationRecord
   def current_user? user
     self == user
   end
+
+  def pending_groups
+    groups.includes(:group_users).distinct.
+      where group_users: {status: :pending}
+  end
+
+  def joined_groups
+    groups - pending_groups - created_groups
+  end
 end

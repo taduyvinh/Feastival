@@ -10,6 +10,8 @@ export default class GroupUser extends React.Component {
           <div className='request-item media-left media-middle'>
             <img src={this.props.groupUser.user.profile.avatar} />
             {this.props.groupUser.user.profile.name}
+            {this.props.groupUser.user.profile.gender}
+            {this.props.groupUser.user.profile.age}
           </div>
           <div className='media-right media-middle'>
             <button
