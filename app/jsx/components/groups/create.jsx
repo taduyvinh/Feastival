@@ -20,7 +20,7 @@ export default class GroupCreate extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(constant.API_NEW_GROUP_URL, constant.headers)
+    axios.get(constant.API_CATEGORIES_URL, constant.headers)
       .then(response => {
         this.setState({
           creator_id: JSON.parse(localStorage.feastival_user).USER_TOKEN.id,

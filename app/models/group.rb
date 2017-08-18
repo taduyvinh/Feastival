@@ -36,5 +36,10 @@ class Group < ApplicationRecord
 
   def assign_creator_role
     creator.add_role :creator, self
+    creator.group_users.create group_id: id, status: :joined
+  end
+
+  def count_requests
+    group_users.pending.count
   end
 end

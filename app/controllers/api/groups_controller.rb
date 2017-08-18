@@ -70,7 +70,8 @@ module Api
             users: {include: :profile},
             creator: {include: :profile}
           }
-        ), group_user: group_user
+        ), group_user: group_user,
+        requests: group.count_requests
       }, status: :ok
     end
 

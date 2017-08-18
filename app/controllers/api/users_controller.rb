@@ -22,9 +22,21 @@ module Api
         user_info: {
           id: user.id,
           email: user.email,
-          profile: user.profile
+          profile: user.profile,
+          groups: my_groups
         }
       }, status: :ok
+    end
+
+    def my_groups
+      params_groups = params[:groups]
+      if params_groups == "created"
+        user.created_groups.as_json(only: [:id, :title, :time, :address, :size])
+      elsif params_groups == "joined"
+        user.joined_groups.as_json(only: [:id, :title, :time, :address, :size])
+      else
+        []
+      end
     end
 
     def response_update_success

@@ -133,10 +133,20 @@ module.exports = {
         cancel: 'Hủy',
         accept: 'Đồng ý',
         decline: 'Chấp nhận',
-        no_request: 'Không có yêu cầu nào mới'
+        no_request: 'Không có yêu cầu nào mới',
+        requests: 'yêu cầu'
       }
     },
-    restaurant: {
+    restaurants: {
+      create: {
+        category: 'Hình thức',
+        submit: 'Tạo nhà hàng',
+        title: 'Tên nhà hàng',
+        description: 'Mô tả',
+        address: 'Địa chỉ',
+        phonenumber: 'Số điện thoại',
+        website: 'Trang web'
+      },
       info: {
         update_title: 'Cập nhật thông tin nhà hàng',
         title: 'Tên nhà hàng',
@@ -146,15 +156,6 @@ module.exports = {
         description: 'Mô tả',
         update: 'Cập nhật',
         info: 'Thông tin'
-      },
-      create: {
-        category: 'Hình thức',
-        submit: 'Tạo nhà hàng',
-        title: 'Tên nhà hàng',
-        description: 'Mô tả',
-        address: 'Địa chỉ',
-        phonenumber: 'Số điện thoại',
-        website: 'Trang web'
       }
     },
     vouchers: {

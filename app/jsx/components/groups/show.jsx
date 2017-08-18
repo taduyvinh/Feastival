@@ -5,6 +5,7 @@ import AlertContainer from 'react-alert';
 import axios from 'axios'
 import TextareaAutosize from 'react-autosize-textarea';
 import UserItem from './user_item';
+import {Route, Link} from 'react-router';
 
 let translate = require('counterpart');
 
@@ -27,6 +28,7 @@ export default class GroupShow extends React.Component {
     this.state = {
       group: {},
       group_user: null,
+      requests: 0,
       users: [],
       chat_box: '',
       cover_image: 'http://cdn.thedesigninspiration.com/wp-content/uploads/2012/06/Facebook-Covers-017.jpg',
@@ -81,7 +83,8 @@ export default class GroupShow extends React.Component {
         this.setState({
           group: response.data.group,
           group_user: response.data.group_user,
-          users: response.data.group.users
+          users: response.data.group.users,
+          requests: response.data.requests
         });
       })
       .catch(error => {
@@ -123,11 +126,10 @@ export default class GroupShow extends React.Component {
         'time': '12:00'
       }
       this.writeMessageData(mes);
-
     }
   }
 
-  renderView() {
+  renderView(creator_id) {
     if (localStorage.feastival_user != null) {
       return (
         <section className='group-chat'>
@@ -177,10 +179,17 @@ export default class GroupShow extends React.Component {
                     <div className='title'>{translate('app.vouchers.title')}</div>
                     <p>12312414</p>
                     <hr/>
-                    <p>Description</p>
-                    <p>Description</p>
-                    <p>Description</p>
-                    <p>Description</p>
+                    {(creator_id == JSON.parse(localStorage.feastival_user).user_id) ?
+                      (
+                        <Link to={`/groups/${this.props.params.group_id}/requests`}
+                          className='btn btn-primary'>
+                          {this.state.requests} {translate('app.groups.view.requests')}
+                        </Link>
+                      ) : null
+                    }
+                    <p>{this.state.group.time}</p>
+                    <p>{this.state.group.address}</p>
+                    <p>{this.state.group.size}</p>
                   </div>
                   <div className='group-map'>
                     <MapForShow/>
@@ -198,7 +207,7 @@ export default class GroupShow extends React.Component {
   render() {
     return (
       <div>
-        {this.renderView()}
+        {this.renderView(this.state.group.creator_id)}
       </div>
     )
   }

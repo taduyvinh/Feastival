@@ -128,10 +128,20 @@ module.exports = {
         cancel: 'Cancel Request',
         accept: '受け入れる',
         decline: '低下',
-        no_request: 'がありません'
+        no_request: 'がありません',
+        requests: 'リクエスト'
       }
     },
-    restaurantinfo: {
+    restaurants: {
+      create: {
+        category: 'カテゴリー',
+        submit: '提出する',
+        title: 'タイトル',
+        description: '説明',
+        address: 'アドレス',
+        phonenumber: '電話番号',
+        website: 'サイト'
+      },
       info: {
         update_title: 'レストラン情報アップデ-ト',
         title: 'レストラン名',
@@ -141,15 +151,6 @@ module.exports = {
         description: 'レストランの説明',
         update: 'アップデ-ト',
         info: '情報'
-      },
-      create: {
-        category: 'カテゴリー',
-        submit: '提出する',
-        title: 'タイトル',
-        description: '説明',
-        address: 'アドレス',
-        phonenumber: '電話番号',
-        website: 'サイト'
       }
     },
     vouchers: {
