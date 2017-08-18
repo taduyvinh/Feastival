@@ -77,7 +77,7 @@ export default class GroupShow extends React.Component {
         let findUser = response.data.group.users.find((user, index) => {
           return user.id == user_id;
         });
-        if (!findUser && response.data.creator.id != user_id) {
+        if (findUser == null && response.data.creator.id != user_id) {
           window.location = constant.GROUPS_URL + this.props.params.group_id + '/info';
         }
         this.setState({
@@ -88,7 +88,7 @@ export default class GroupShow extends React.Component {
         });
       })
       .catch(error => {
-        this.showAlert(error);
+        this.showAlert(translate('app.error.error'));
       })
   }
 
@@ -112,12 +112,7 @@ export default class GroupShow extends React.Component {
 
   handleKeyDownSubmit(event) {
     if (event.key == 'Enter' && this.state.chat_box != '') {
-      let avatar = '';
-      if (JSON.parse(localStorage.feastival_user).avatar == null ||
-        JSON.parse(localStorage.feastival_user).avatar == '')
-        avatar = constant.DEFAULT_AVATAR;
-      else
-        avatar = JSON.parse(localStorage.feastival_user).avatar;
+      let avatar = JSON.parse(localStorage.feastival_user).avatar.url;
       let mes = {
         'user_id': JSON.parse(localStorage.feastival_user).user_id,
         'type': 0,

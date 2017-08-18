@@ -33,11 +33,16 @@ export default class Login extends React.Component {
     let email = this.state.email;
     axios.post(constant.API_SIGN_IN_URL, formData)
       .then((response) => {
+        let avatar = {url: ''};
+        if (response.data.user_session.avatar.url == null)
+          avatar.url = constant.DEFAULT_AVATAR;
+        else
+          avatar = response.data.user_session.avatar;
         let feastival_user = {
           email: email,
           user_id: response.data.user_session.id,
           USER_TOKEN: response.data.user_session.user_token,
-          avatar: response.data.user_session.avatar
+          avatar: avatar
         }
         localStorage.setItem('feastival_user', JSON.stringify(feastival_user));
         window.location = constant.BASE_URL;

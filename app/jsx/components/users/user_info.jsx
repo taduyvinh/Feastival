@@ -18,7 +18,8 @@ export default class UserInfo extends React.Component {
         'job': '',
         'avatar': '',
         'description': '',
-      }
+      },
+      avatar: ''
     }
   }
 
@@ -33,10 +34,16 @@ export default class UserInfo extends React.Component {
   getUserInfoById(id) {
     axios.get(constant.API_USER_INFO_URL + id, constant.headers)
       .then(response =>  {
-        this.checkNullInfo(response.data.user_info.profile)
+        this.checkNullInfo(response.data.user_info.profile);
+        let avatar = {url: ''};
+        if (response.data.user_info.profile.avatar.url == null)
+          avatar.url = constant.DEFAULT_AVATAR;
+        else
+          avatar = response.data.user_info.profile.avatar;
         this.setState({
           email: response.data.user_info.email,
-          profile: response.data.user_info.profile
+          profile: response.data.user_info.profile,
+          avatar: avatar
         })
       })
       .catch(error => {
@@ -64,8 +71,8 @@ export default class UserInfo extends React.Component {
         <div className='row wrapper-user-info'>
           <div className='pmd-card pmd-z-depth-1 col-md-offset-3 col-md-6 user-info-body'>
             <div className='fileinput fileinput-new col-md-2 col-md-offset-1 avatar'>
-              <div className='fileinput-preview thumbnail img-circle img-responsive'>
-                <img src={this.state.profile.avatar} width='180' height='200'/>
+              <div className='fileinput-preview thumbnail img-responsive'>
+                <img src={this.state.avatar.url || this.state.avatar} width='180' height='200'/>
               </div>
             </div>
 

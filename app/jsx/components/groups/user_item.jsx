@@ -1,8 +1,6 @@
 var translate = require('counterpart');
 
-import axios from 'axios';
 import * as constant from '../../constant';
-import AlertContainer from 'react-alert';
 
 export default class UserItem extends React.Component {
   renderAvatar() {
