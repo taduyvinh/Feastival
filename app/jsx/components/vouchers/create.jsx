@@ -91,6 +91,7 @@ export default class VoucherCreate extends React.Component {
                   <input className='upload'
                     type='file'
                     name='image'
+                    accept='image/*'
                     onChange={e => this.handleImageChange(e)}
                   />
                 </div>

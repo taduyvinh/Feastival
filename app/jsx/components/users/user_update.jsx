@@ -148,7 +148,7 @@ export default class UserUpdate extends React.Component {
                   <span className='fileinput-exists'>
                     <i className='material-icons md-light pmd-xs'>mode_edit</i>
                   </span>
-                  <input className='form-control' type='file' name='image'
+                  <input className='form-control' type='file' name='image' accept='image/*'
                     onChange={e => this.handleImageChange(e)}/>
 	              </span>
                 <a data-dismiss='fileinput'
